@@ -12,10 +12,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Matea Pjanic on 22/02/2017.
+ * Created by Matea Pjanic on 27/02/2017.
  */
-public class Info extends HttpServlet
-    {
+public class Search extends HttpServlet
+{
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
 
@@ -65,7 +65,7 @@ public class Info extends HttpServlet
         bends.add(azra);
         bends.add(santana);
 
-        String input = request.getParameter("yourBend");
+        String input = request.getParameter("yourInput");
 
         int size = bends.size();
         for(int i=0; i<size; i++) {
@@ -76,7 +76,7 @@ public class Info extends HttpServlet
             }
             else if(i == size - 1) {
                 Map noinfo = new HashMap();
-                noinfo.put("no", "yeah right! how about azra or santana??<br>");
+                noinfo.put("no", "hm... how about azra or santana?? :) <br>");
                 String json = new Gson().toJson(noinfo);
                 response.getWriter().write(json);
             }

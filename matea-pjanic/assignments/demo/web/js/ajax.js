@@ -1,5 +1,5 @@
 /**
- * Created by Matea Pjanic on 21/02/2017.
+ * Created by Matea Pjanic on 27/02/2017.
  */
 $(document).ready(function() {
 
@@ -7,11 +7,14 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    $("#btn2").click(function() {
-        var bend = $('#bend').val();
+    $("#searchBtn").click(function() {
+        var search = $('#search').val();
+        $('#content').hide();
+        $('#joinContent').hide();
+        $('#loginContent').hide();
         $.ajax({
-            url: '/InfoPath',
-            data: {yourBend: bend},
+            url: '/SearchPath',
+            data: {yourInput: search, },
             dataType: 'json',
             type: 'post',
             success: function(responseJson) {
@@ -33,5 +36,9 @@ $(document).ready(function() {
                 }
             }
         });
+        $('#search').val('');
+        $('#search').attribute('placeholder','Search music');
     });
+
 });
+

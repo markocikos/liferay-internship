@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: Matea Pjanic
   Date: 27/02/2017
-  Time: 13:04
+  Time: 11:37
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -22,17 +22,39 @@
     <jsp:param name="info" value="<a href='#info'>Info</a>" />
     <jsp:param name="artists" value="<a href='index.jsp#artists'>Top artists</a>" />
     <jsp:param name="tracks" value="<a href='index.jsp#tracks'>Top tracks</a>" />
+    <jsp:param name="join" value="<a href='join.jsp'>Join</a>" />
     <jsp:param name="events" value="<a href='index.jsp#events'>Events</a>" />
     <jsp:param name="home" value="<a href='index.jsp'>Home</a>" />
 </jsp:include>
-<div id="myContainer">
-    <a class="my">My playlists</a>
-    <a class="my">My events</a>
-</div>
-<div class="container" id="content">
-    <div class="container" id="news"></div>
-    <div class="container" id="music"></div>
-    <div class="container" id="tracks"></div>
+<div class="container" id="loginContent">
+<form class="form-horizontal" method="post" action="RegistrationPath">
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+            <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-10">
+            <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> Remember me
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Join</button>
+        </div>
+    </div>
+</form>
 </div>
 <div class="container" id="result">
 </div>

@@ -1,0 +1,268 @@
+header, footer {
+    background-color: black;
+    color: white;
+    position: fixed;
+    width: 100%;
+}
+
+header {
+    top: 0;
+}
+
+footer {
+    bottom: 0;
+    color: seagreen;
+}
+
+#searchMusicForm {
+    display: inline-block;
+}
+
+#site-nav {
+    display: inline-block;
+    float: right;
+}
+
+#head {
+    padding: 20px 30px 10px 30px;
+}
+
+#content, #joinContent, #loginContent, #result {
+    margin-top: 100px;
+}
+
+#myContainer {
+    padding: 80px 30px 10px 30px;
+}
+
+.my {
+    float: right;
+}
+
+#search {
+    border: 0;
+    background: none;
+    border-bottom: 1px;
+    border-style: solid;
+    border-bottom-color: seagreen;
+    padding: 3px 10px;
+}
+
+a {
+    color: seagreen;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+#searchBtn {
+    font-size: 16px;
+    color: #FFF;
+    background-color: transparent;
+    border: none;
+}
+
+.form-horizontal {
+    margin-top: 80px;
+    margin-right: 50px;
+}
+
+#musicChoice {
+    padding-left: 120px;
+}
+
+.newsPic {
+    float: left;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 25%;
+}
+
+h4 {
+    margin-top: 20px;
+}
+
+#news {
+    margin-top: 20px;
+}
+
+#artists {
+    margin: 0;
+    padding: 0;
+}
+
+.artistsPic {
+    float: left;
+    background-size: cover;
+    margin: 0;
+    height: 150px;
+    width: 150px;
+}
+
+.artistsPic:hover {
+    opacity: 0.8;
+}
+
+.artistsPar {
+    display: none;
+}
+
+@keyframes enlargeText {
+    from {font-size: 20px; left: 0; top: 0;}
+    to{font-size: 26px; left: 10px; top: 20px;}
+}
+
+.artistsPic:hover .artistsPar{
+    display: block;
+    position: relative;
+    color: white;
+    animation: enlargeText 1.0s forwards;
+}
+
+#thunder {
+    background-image: url('../img/thundercat.jpg');
+    width: 500px;
+    height: 300px;
+}
+
+#weeknd {
+    background-image: url('../img/the-weeknd.jpg');
+}
+
+#future {
+    background-image: url('../img/future.jpg');
+}
+
+#justin {
+    background-image: url('../img/justinh.jpg');
+}
+
+#xx {
+    background-image: url('../img/xx.jpg');
+}
+
+#adele {
+    background-image: url('../img/adele.jpg');
+}
+
+#chain {
+    background-image: url('../img/chainsmokers.jpg');
+}
+
+#maus {
+    background-image: url('../img/deadmau5.jpg');
+}
+
+#lana {
+    background-image: url('../img/lana.jpg');
+}
+
+hr{
+    background-color: black;
+    height: 1px;
+}
+
+#moreAdvL, #moreCornL, #moreJohnL {
+    color: black;
+    float: none;
+}
+
+.moreAdvP, .moreCornP, .moreJohnP {
+    display: none;
+}
+
+.showMe {
+    display: inline;
+}
+
+.glyphicon-play-circle, .glyphicon-heart-empty, #searchBtn {
+    color: gainsboro;
+}
+
+.glyphicon-heart-empty:hover {
+    color: red;
+}
+
+.glyphicon-play-circle:hover, #searchBtn:hover {
+    color: green;
+}
+
+@media only screen and (max-width: 1200px) {
+    #thunder {
+        width: 600px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #musicChoice{
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    #site-nav {
+        padding-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    #thunder {
+        width: 450px;
+    }
+    .newsPic {
+        width: 30%;
+    }
+}
+
+@media only screen and (max-width: 607px) {
+    #myContainer {
+        padding: 100px 30px 10px 30px;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .artistsPic {
+        width: 100px;
+        height: 100px;
+    }
+    #thunder {
+        width: 300px;
+    }
+    .newsPic {
+        width: 40%;
+    }
+    #tracks table th{
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .artistsPic {
+        width: 90px;
+        height: 90px;
+    }
+    #thunder {
+        width: 180px;
+        height: 180px;
+    }
+    .newsPic {
+        width: 70%;
+        float: none;
+    }
+    #myContainer{
+        margin-top: 120px;
+    }
+    #tracks table th{
+        font-size: 12px;
+    }
+    #myContainer {
+        padding: 0 30px 10px 30px;
+    }
+}
+
+.col-sm-10 {
+    max-width: 500px;
+}
+
+
