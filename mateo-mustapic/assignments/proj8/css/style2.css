@@ -1,0 +1,74 @@
+body {
+  	left: 0;
+  	margin: 0;
+  	position: relative;
+  	font-size: 2em;
+  	padding-left: 25px;
+  	padding-right: 25px;
+  	padding-bottom: 25px;
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    background-color: #e8edf7;
+}
+/* Side navigation */
+#sideNav a {
+    position: fixed;
+    font-size: 1.6em; 
+    left: -120px; 
+    transition: 0.3s; 
+    padding: 15px; 
+    width: 140px; 
+    text-decoration: none; 
+    font-size: 18px; 
+    color: white; 
+    border-radius: 0 5px 5px 0; 
+}
+#sideNav a:hover {
+    left: 0; 
+}
+#indexTab {
+    top: 40px;
+    background-color: #4CAF50;
+}
+
+#flightsTab {
+    top: 100px;
+    background-color: #2196F3; 
+}
+
+#companies {
+    top: 160px;
+    background-color: #f44336; 
+    right: 80px;
+}
+
+#contact {
+    top: 220px;
+    background-color: #555 
+}
+
+/*Airports Page*/
+.flex-container1, .flex-container2, .flex-container3 {
+    display: -webkit-flex;
+    display: flex;
+    padding-top: 10px;
+    margin-top: 10px;
+    margin-left: 120px;
+    width: 86%;
+    height: 350px;
+    font-size: 1.5rem;
+    border-radius: 8px;
+}
+h1{
+    text-align: center;
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.flex-item {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    width: 32%;
+    height: 90%;
+    margin: 10px;
+    padding: 15px 15px 15px 15px;
+    border-radius: 15px;
+    color: #E4F1FE;
+    background-color: #747992;
+}
