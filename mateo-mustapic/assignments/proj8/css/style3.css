@@ -1,0 +1,66 @@
+body {
+  	left: 0;
+  	margin: 0;
+  	position: relative;
+  	font-size: 1.8em;
+  	padding-left: 25px;
+  	padding-right: 25px;
+  	padding-bottom: 25px;
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    background-color: #e8edf7;
+}
+/* Side navigation */
+#sideNav a {
+    position: fixed;
+    font-size: 1.6em; 
+    left: -120px; 
+    transition: 0.3s; 
+    padding: 15px; 
+    width: 140px; 
+    text-decoration: none; 
+    font-size: 18px; 
+    color: white; 
+    border-radius: 0 5px 5px 0; 
+}
+#sideNav a:hover {
+    left: 0; 
+}
+#indexTab {
+    top: 40px;
+    background-color: #4CAF50;
+}
+
+#flightsTab {
+    top: 100px;
+    background-color: #2196F3; 
+}
+
+#companies {
+    top: 160px;
+    background-color: #f44336; 
+    right: 80px;
+}
+
+#contact {
+    top: 220px;
+    background-color: #555 
+}
+table, h1 {
+    margin-top: 25px;
+    margin-left: 120px;
+    border-collapse: collapse;
+    width: 86%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+th{
+    color: #E4F1FE;
+    background-color: #747992
+}
+tr:nth-child(even) {
+    color: black;
+    background-color: #c4cad3;
+}
