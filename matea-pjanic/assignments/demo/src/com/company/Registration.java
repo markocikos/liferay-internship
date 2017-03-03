@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Matea Pjanic on 21/02/2017.
+ * Created by Matea Pjanic on 27/02/2017.
  */
 public class Registration extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -16,17 +16,10 @@ public class Registration extends HttpServlet {
 
         response.setContentType("text/html");
 
-        String pass = request.getParameter("password");
-        String user = request.getParameter("username");
+//        String pass = request.getParameter("password");
+//        String email = request.getParameter("email");
 
-        if (pass == null || pass.equals("") || user.equals("")) {
-            RequestDispatcher view = request.getRequestDispatcher("index.jsp");
-            view.forward(request,response);
-        }
-        else {
-            RequestDispatcher view = request.getRequestDispatcher("profile.jsp");
-            view.forward(request,response);
-        }
+        RequestDispatcher view = request.getRequestDispatcher("profile.jsp");
+        view.forward(request,response);
     }
 }
-
