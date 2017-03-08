@@ -5,7 +5,7 @@ package com.company;
  */
 public class Song {
     private String songName;
-    private String songDuration;
+    private String mp3;
 
     public String getSongName() {
         return songName;
@@ -15,7 +15,11 @@ public class Song {
         this.songName = songName;
     }
 
-    public String getSongDuration() { return songDuration; }
+    public String getMp3() {
+        return mp3;
+    }
 
-    public void setSongDuration(String songDuration) { this.songDuration = songDuration; }
+    public void setMp3(String mp3) {
+        this.mp3 = mp3;
+    }
 }

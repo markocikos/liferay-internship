@@ -27,7 +27,8 @@ public class Search extends HttpServlet
 
         Gson gson = new Gson();
         Type list = new TypeToken<ArrayList<Bend>>(){}.getType();
-        ArrayList<Bend> bends = gson.fromJson(new FileReader("C:\\Users\\Matea Pjanic\\myJSP&Servlets\\MusicAppDesign\\web\\json\\bends.json"), list);
+
+        ArrayList<Bend> bends = gson.fromJson(new FileReader("C:\\Users\\Matea Pjanic\\Git\\matea-pjanic\\assignments\\demo\\web\\json\\bends.json"), list);
 
         String input = request.getParameter("yourInput");
 
@@ -40,7 +41,7 @@ public class Search extends HttpServlet
             }
             else if(i == size - 1) {
                 Map noinfo = new HashMap();
-                noinfo.put("no", "hm... how about azra or santana?? :) <br>");
+                noinfo.put("no", "nope. dont have that <br>");
                 String json = new Gson().toJson(noinfo);
                 response.getWriter().write(json);
             }
