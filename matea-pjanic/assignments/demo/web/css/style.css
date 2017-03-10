@@ -38,33 +38,6 @@ footer {
     margin-top: 100px;
 }
 
-#result{
-    margin-top: 0 !important;
-}
-
-#profileLinksContainer {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 72px;
-    padding: 16px;
-}
-
-#profileLinksContainer a {
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-#profileLinksContainer a:first-child {
-    padding-right: 16px;
-}
-
-#profileLinksContainer a:hover,#profileLinksContainer a:active
-{
-    text-decoration: none;
-    color: seagreen;
-}
-
 #search {
     border: 0;
     background: none;
@@ -82,7 +55,6 @@ footer {
     color: lemonchiffon;
     padding-left: 12px;
 }
-
 
 .headLink:hover,.headLink:active
 {
@@ -211,7 +183,7 @@ hr{
     display: inline;
 }
 
-.glyphicon-play-circle, .glyphicon-heart-empty {
+.glyphicon-heart {
     color: gainsboro;
 }
 
@@ -219,12 +191,8 @@ hr{
     color: lemonchiffon;
 }
 
-.glyphicon-heart-empty:hover {
+.glyphicon-heart:hover {
     color: red;
-}
-
-.glyphicon-play-circle:hover {
-    color: seagreen;
 }
 
 #searchBtn:hover {
@@ -304,4 +272,6 @@ hr{
     display: inline-block;
 }
 
-
+.audioPlay {
+    float: right;
+}

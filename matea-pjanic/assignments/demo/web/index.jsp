@@ -11,8 +11,7 @@
   <title>$Title$</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="js/jquery.easy-autocomplete.js" type="text/javascript"></script>
-  <script src="js/ajax.js" type="text/javascript"></script>
-  <script src="js/bla.js" type="text/javascript"></script>
+  <script src="js/jquery.js" type="text/javascript"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/easy-autocomplete.css">
@@ -22,12 +21,10 @@
 </head>
 <body>
 <jsp:include page="header.jsp" >
-  <jsp:param name="info" value="<a class='headLink' href='#info'>Info</a>" />
   <jsp:param name="login" value="<a class='headLink' href='login.jsp'>Login</a>" />
   <jsp:param name="join" value="<a class='headLink' href='join.jsp'>Join</a>" />
   <jsp:param name="artists" value="<a class='headLink' href='#artists'>Top artists</a>" />
   <jsp:param name="tracks" value="<a class='headLink' href='#tracks'>Top tracks</a>" />
-  <jsp:param name="events" value="<a class='headLink' href='#events'>Events</a>" />
   <jsp:param name="home" value="<a class='headLink' href='index.jsp'>Home</a>" />
 </jsp:include>
 <div class="container" id="content">
@@ -130,94 +127,106 @@
       <tr>
         <th>
           1 &nbsp;&nbsp;
-          <span class="glyphicon glyphicon-play-circle" data-toggle="tooltip" title="play"></span>
-          <span class="glyphicon glyphicon-heart-empty" data-toggle="tooltip" title="add to playlist"></span>
+          <span class="glyphicon glyphicon-heart" data-toggle="tooltip" title="add to playlist"></span>
           &nbsp;&nbsp;&nbsp;&nbsp;Ed Sheeran: Shape Of You
+          <audio class="audioPlay" controls>
+            <source src = "../mp3/EdSheeran-ShapeOfYou.mp3" type = "audio/mp3">
+          </audio>
         </th>
 
       </tr>
       <tr>
         <th>
           2 &nbsp;&nbsp;
-          <span class="glyphicon glyphicon-play-circle" data-toggle="tooltip" title="play"></span>
-          <span class="glyphicon glyphicon-heart-empty" data-toggle="tooltip" title="add to playlist"></span>
+          <span class="glyphicon glyphicon-heart" data-toggle="tooltip" title="add to playlist"></span>
           &nbsp;&nbsp;&nbsp;&nbsp;The Weeknd: I Feel It Coming
+          <audio class="audioPlay" controls>
+            <source src = "../mp3/TheWeeknd-IFeelItComing.mp3" type = "audio/mp3">
+          </audio>
         </th>
       </tr>
       <tr>
         <th>
           3 &nbsp;&nbsp;
-          <span class="glyphicon glyphicon-play-circle" data-toggle="tooltip" title="play"></span>
-          <span class="glyphicon glyphicon-heart-empty" data-toggle="tooltip" title="add to playlist"></span>
+          <span class="glyphicon glyphicon-heart" data-toggle="tooltip" title="add to playlist"></span>
           &nbsp;&nbsp;&nbsp;&nbsp;The Weeknd: Sidewalks
+          <audio class="audioPlay" controls>
+            <source src = "../mp3/TheWeeknd-Sidewalks.mp3" type = "audio/mp3">
+          </audio>
         </th>
       </tr>
       <tr>
         <th>
           4 &nbsp;&nbsp;
-          <span class="glyphicon glyphicon-play-circle" data-toggle="tooltip" title="play"></span>
-          <span class="glyphicon glyphicon-heart-empty" data-toggle="tooltip" title="add to playlist"></span>
+          <span class="glyphicon glyphicon-heart" data-toggle="tooltip" title="add to playlist"></span>
           &nbsp;&nbsp;&nbsp;&nbsp;Ryan Gosling: From "La La Land"
+          <audio class="audioPlay" controls>
+            <source src = "../mp3/RyanGosling-LaLaLand.mp3" type = "audio/mp3">
+          </audio>
         </th>
       </tr>
       <tr>
         <th>
           5 &nbsp;&nbsp;
-          <span class="glyphicon glyphicon-play-circle" data-toggle="tooltip" title="play"></span>
-          <span class="glyphicon glyphicon-heart-empty" data-toggle="tooltip" title="add to playlist"></span>
+          <span class="glyphicon glyphicon-heart" data-toggle="tooltip" title="add to playlist"></span>
           &nbsp;&nbsp;&nbsp;&nbsp;Thundercat: Uh Uh
+          <audio class="audioPlay" controls>
+            <source src = "../mp3/Thundercat-UhUh.mp3" type = "audio/mp3">
+          </audio>
         </th>
       </tr>
       <tr>
         <th>
           6 &nbsp;&nbsp;
-          <span class="glyphicon glyphicon-play-circle" data-toggle="tooltip" title="play"></span>
-          <span class="glyphicon glyphicon-heart-empty" data-toggle="tooltip" title="add to playlist"></span>
+          <span class="glyphicon glyphicon-heart" data-toggle="tooltip" title="add to playlist"></span>
           &nbsp;&nbsp;&nbsp;&nbsp;The Chainsmokers: Something Just Like You
+          <audio class="audioPlay" controls>
+            <source src = "../mp3/TheChainsmokers-SomethingJustLikeThis.mp3" type = "audio/mp3">
+          </audio>
         </th>
       </tr>
       <tr>
         <th>
           7 &nbsp;&nbsp;
-          <span class="glyphicon glyphicon-play-circle" data-toggle="tooltip" title="play"></span>
-          <span class="glyphicon glyphicon-heart-empty" data-toggle="tooltip" title="add to playlist"></span>
+          <span class="glyphicon glyphicon-heart" data-toggle="tooltip" title="add to playlist"></span>
           &nbsp;&nbsp;&nbsp;&nbsp;ThunderCat: Captain Stupido
+          <audio class="audioPlay" controls>
+            <source src = "../mp3/Thundercat-CaptainStupido.mp3" type = "audio/mp3">
+          </audio>
         </th>
       </tr>
       <tr>
         <th>
           8 &nbsp;&nbsp;
-          <span class="glyphicon glyphicon-play-circle" data-toggle="tooltip" title="play"></span>
-          <span class="glyphicon glyphicon-heart-empty" data-toggle="tooltip" title="add to playlist"></span>
+          <span class="glyphicon glyphicon-heart" data-toggle="tooltip" title="add to playlist"></span>
           &nbsp;&nbsp;&nbsp;&nbsp;The xx: Dangerous
+          <audio class="audioPlay" controls>
+            <source src = "../mp3/Thexx-Dangerous.mp3" type = "audio/mp3">
+          </audio>
         </th>
       </tr>
       <tr>
         <th>
           9 &nbsp;&nbsp;
-          <span class="glyphicon glyphicon-play-circle" data-toggle="tooltip" title="play"></span>
-          <span class="glyphicon glyphicon-heart-empty" data-toggle="tooltip" title="add to playlist"></span>
+          <span class="glyphicon glyphicon-heart" data-toggle="tooltip" title="add to playlist"></span>
           &nbsp;&nbsp;&nbsp;&nbsp;John Legend: Start A Fire
+          <audio class="audioPlay" controls>
+            <source src = "../mp3/JohnLegend-StartAFire.mp3" type = "audio/mp3">
+          </audio>
         </th>
       </tr>
       <tr>
         <th>
           10 &nbsp;
-          <span class="glyphicon glyphicon-play-circle" data-toggle="tooltip" title="play"></span>
-          <span class="glyphicon glyphicon-heart-empty" data-toggle="tooltip" title="add to playlist"></span>
+          <span class="glyphicon glyphicon-heart" data-toggle="tooltip" title="add to playlist"></span>
           &nbsp;&nbsp;&nbsp;&nbsp;Calvin Harris: Slide
+          <audio class="audioPlay" controls>
+            <source src = "../mp3/CalvinHarris-Slide.mp3" type = "audio/mp3">
+          </audio>
         </th>
       </tr>
       </tbody>
     </table>
-  </div>
-  <hr>
-
-  <div class="container" id="events">
-    <h2>Events</h2>
-    <div class="eventsPic">
-
-    </div>
   </div>
 
 </div>

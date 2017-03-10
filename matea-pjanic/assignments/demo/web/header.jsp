@@ -16,8 +16,6 @@
         ${param.join}
         ${param.artists}
         ${param.tracks}
-        ${param.info}
         ${param.home}
-        ${param.events}
     </nav>
 </header>

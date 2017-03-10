@@ -16,9 +16,13 @@ public class Bend {
         this.bendName = bendName;
     }
 
-    public String getImage() { return image; }
+    public String getImage() {
+        return image;
+    }
 
-    public void setImage(String image) { this.image = image; }
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public Album[] getAlbums() {
         return albums;
