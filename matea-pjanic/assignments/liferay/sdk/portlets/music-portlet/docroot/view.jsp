@@ -18,4 +18,18 @@
 
 <%@ include file="/header.jsp" %>
 
-This is the <b>Music App</b> portlet.
+<div id="searchResult"></div>
+
+<aui:script use="event, node">
+    var btn = A.one("#searchBtn");
+    var input = A.one("#<portlet:namespace />searchInput");
+    var result = A.one("#searchResult");
+    btn.on('click', function(event){
+    inp = input.val();
+    result.append('<p id="info"></p>');
+    info = A.one("#info");
+    if(inp != '') {
+    info.html('Searching for ' + inp + '...');
+    }
+    });
+</aui:script>
