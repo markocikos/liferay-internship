@@ -11,104 +11,61 @@ main > .content {
 	margin-left: 64px;
 }
 
-#add-environment {
-	background-color: $secondary;
+.content-welcome {
+	background-color: #FEFEFE;
+	border-bottom: 1px solid $lightBorder;
 	color: $inactiveDarkText;
-	display: flex;
-	flex-direction: column;
-	height: 0;
-	opacity: 0;
-	max-width: 33%;
-	min-width: 480px;
-	transition: all .3s ease;
-	z-index: -1;
+	padding: 24px;
+	width: 100%;
+}
 
-	h3 {
-		align-items: center;
-		display: flex;
-		justify-content: space-between;
-		opacity: 0;
-		padding-left: 16px;
+.content-nav {
+	background-color: #FFF;
+	border-bottom: 1px solid $lightBorder;
+	list-style: none;
+	width: 100%;
 
-		i {
-			color: $inactiveDanger;
-			cursor: pointer;
-			padding: 16px;
+	li {
+		border-bottom: 1px solid transparent;
+		color: $inactiveDarkText;
+		cursor: pointer;
+		display: inline-block;
+		padding: 16px 32px;
+		text-align: center;
+		text-decoration: none;
+		transition: all .3s ease;
 
-			&:hover {
-				color: $danger;
-			}
-		}
-	}
-
-	&.add-environment-open {
-		height: auto;
-		opacity: 1;
-		padding: 16px;
-		z-index: 1;
-
-		h3 {
-			opacity: 1;
-		}
-
-		#add-environment-form {
-			opacity: 1;
+		&:hover, &.active {
+			color: $darkText;
 		}
 	}
 }
 
-#add-environment-form {
-	background-color: #FFF;
-	border-radius: 3px;
-	box-shadow: $smallBoxShadow;
-	display: flex;
-	flex-direction: column;
-	opacity: 0;
-	padding: 16px;
-	
-	label {
-		padding-bottom: 8px;
+@media screen and (max-width: 480px) {
+	main > .content {
+		margin-left: 64px;
+		width: calc(100vw - 64px);
 	}
 
-	input, textarea {
-		border: 0;
-		padding: 8px;
-		outline-width: 0;
-		resize: vertical;
-		transition: all .15s ease;
-
-		&:not([type="submit"]) {
-			border-bottom: 1px solid $lightBorder;
-			margin-bottom: 16px;
-		}
-
-		&:hover {
-			border-bottom-color: $primary;
-		}
-
-		&:focus {
-			border-bottom-color: $primary;
-			color: $darkText;
-		}
+	.content-welcome {
+		display: none;
 	}
 
-	textarea {
-		height: 150px;
-	}
+	.content-nav {
+		display: flex;
+		max-width: calc(100vw - 64px);
+		overflow-y: hidden;
+		overflow-x: auto;
+		white-space: nowrap;
 
-	input[type="submit"] {
-		align-self: center;
-		background-color: $primary;
-		border-radius: 3px;
-		box-shadow: $smallBoxShadow;
-		color: $inactiveLightText;
-		cursor: pointer;
-		transition: all .3s ease;
-		width: 50%;
+		&::-webkit-scrollbar {
+			width: 0;
+			display: none;
+		}
 
-		&:hover {
-			color: #FFF;
-			box-shadow: $bigBoxShadow;
+		li {
+			font-weight: 300;
+			padding: 16px 24px;
 		}
 	}
 }
