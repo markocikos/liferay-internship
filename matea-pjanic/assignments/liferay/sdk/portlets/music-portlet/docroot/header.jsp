@@ -14,8 +14,13 @@
  */
 --%>
 
-<%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
+<%@ include file="/init.jsp" %>
 
-<%@ taglib uri="http://alloy.liferay.com/tld/aui" prefix="aui" %>
+<portlet:actionURL name="search" var="searchURL"></portlet:actionURL>
 
-<portlet:defineObjects />
+<aui:form action="<%= searchURL %>">
+
+    <aui:input name="Music"></aui:input>
+    <aui:button type="submit"></aui:button>
+
+</aui:form>

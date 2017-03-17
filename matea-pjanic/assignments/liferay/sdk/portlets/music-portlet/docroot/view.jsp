@@ -16,4 +16,6 @@
 
 <%@ include file="/init.jsp" %>
 
+<%@ include file="/header.jsp" %>
+
 This is the <b>Music App</b> portlet.

@@ -4,7 +4,7 @@
 	<portlet>
 		<portlet-name>music</portlet-name>
 		<display-name>Music App</display-name>
-		<portlet-class>com.liferay.util.bridges.mvc.MVCPortlet</portlet-class>
+		<portlet-class>com.liferay.music.portlet.MusicPortlet</portlet-class>
 		<init-param>
 			<name>view-template</name>
 			<value>/view.jsp</value>
