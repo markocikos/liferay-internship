@@ -15,14 +15,16 @@
 package com.liferay.music.portlet;
 
 import com.liferay.util.bridges.mvc.MVCPortlet;
+
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 
 /**
  * @author Matea Pjanic
  */
-public class MusicPortlet extends MVCPortlet{
-    public void search(ActionRequest actionRequest, ActionResponse acionResponse) {
+public class MusicPortlet extends MVCPortlet {
 
-    }
+	public void search(
+			ActionRequest actionRequest, ActionResponse actionResponse) {}
+
 }

@@ -19,9 +19,8 @@
 <portlet:actionURL name="search" var="searchURL"></portlet:actionURL>
 
 <aui:form action="<%= searchURL %>" id="searchMusicForm" onSubmit="event.preventDefault();">
-    <aui:fieldset>
-        <aui:input id="searchInput" name=""></aui:input>
-        <aui:button id="searchBtn" type="submit" value="search" icon="icon-search"></aui:button>
-    </aui:fieldset>
+	<aui:fieldset>
+		<aui:input id="searchInput" name="music"></aui:input>
+		<aui:button icon="icon-search" id="searchBtn" type="submit" value="search"></aui:button>
+	</aui:fieldset>
 </aui:form>
-
