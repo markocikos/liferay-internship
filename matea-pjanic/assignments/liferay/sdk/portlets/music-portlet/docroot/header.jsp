@@ -14,11 +14,14 @@
  */
 --%>
 
-<%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
+<%@ include file="/init.jsp" %>
 
-<%@ taglib uri="http://alloy.liferay.com/tld/aui" prefix="aui" %>
+<portlet:actionURL name="search" var="searchURL"></portlet:actionURL>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<aui:form action="<%= searchURL %>" id="searchMusicForm" onSubmit="event.preventDefault();">
+    <aui:fieldset>
+        <aui:input id="searchInput" name=""></aui:input>
+        <aui:button id="searchBtn" type="submit" value="search" icon="icon-search"></aui:button>
+    </aui:fieldset>
+</aui:form>
 
-<portlet:defineObjects />

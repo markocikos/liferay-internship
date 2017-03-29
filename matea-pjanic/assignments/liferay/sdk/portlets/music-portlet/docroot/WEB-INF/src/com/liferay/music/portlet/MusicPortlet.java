@@ -1,4 +1,3 @@
-<%--
 /**
  * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
@@ -12,13 +11,18 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
---%>
 
-<%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
+package com.liferay.music.portlet;
 
-<%@ taglib uri="http://alloy.liferay.com/tld/aui" prefix="aui" %>
+import com.liferay.util.bridges.mvc.MVCPortlet;
+import javax.portlet.ActionRequest;
+import javax.portlet.ActionResponse;
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+/**
+ * @author Matea Pjanic
+ */
+public class MusicPortlet extends MVCPortlet{
+    public void search(ActionRequest actionRequest, ActionResponse acionResponse) {
 
-<portlet:defineObjects />
+    }
+}
