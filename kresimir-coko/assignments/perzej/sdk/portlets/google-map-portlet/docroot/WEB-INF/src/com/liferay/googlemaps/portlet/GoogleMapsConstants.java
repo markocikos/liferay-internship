@@ -1,4 +1,3 @@
-<%--
 /**
  * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
@@ -12,8 +11,18 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
---%>
 
-<%@ include file="/init.jsp" %>
+package com.liferay.googlemaps.portlet;
 
-<iframe allowfullscreen frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=<%= PortletProps.get("perzej.google.api") %>&q=Zavrtnica+17,Zagreb+Croatia" style="border:0"></iframe>
+/**
+ * @author Manuel de la Peña
+ */
+public class GoogleMapsConstants {
+
+	public static final String BICYCLING = "BICYCLING";
+
+	public static final String DRIVING = "DRIVING";
+
+	public static final String WALKING = "WALKING";
+
+}
