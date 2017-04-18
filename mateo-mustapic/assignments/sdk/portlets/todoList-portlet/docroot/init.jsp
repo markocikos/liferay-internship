@@ -15,25 +15,9 @@
 --%>
 
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
-
-<%@ include file="/init.jsp" %>
+<%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %>
+<%@ taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %>
+<%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
+<%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %>
 
 <portlet:defineObjects />
-
-<div id="myDIV">
-	<h2>TO DO LIST <span class="icon-check" aria-hidden="true"></span></h2>
-	<div id="inputDiv">
-		<input id="myInput" placeholder="Title of new task..." type="text">
-		<span class="addBtn" id="addItem">Add</span>
-	</div>
-	<span id="myCounter"></span> character(s) remaining
-</div>
-
-<ul id="myUL">
-	<li>Task 1</li>
-	<li>Task 2</li>
-</ul>
-
-<div class="yui3-skin-sam">
-	<div id="modal"></div>
-</div>
