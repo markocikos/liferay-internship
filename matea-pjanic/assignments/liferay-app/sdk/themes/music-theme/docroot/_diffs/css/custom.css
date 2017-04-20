@@ -1,11 +1,11 @@
 .aui {
 	a {
 		color: darkgray;
-	}
-
-	a:hover {
-		color: dimgray;
-		text-decoration: none;
+		&:hover
+		 {
+			 color: dimgray;
+			 text-decoration: none;
+		 }
 	}
 
 	ul {
