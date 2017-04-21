@@ -57,7 +57,7 @@ AUI.add(
 						validator: Lang.isObject,
 						value: {
 							mapTypeId: MAP_TYPE_ROADMAP,
-							zoom: 14
+							zoom: 8
 						}
 					},
 
@@ -86,17 +86,6 @@ AUI.add(
 						var instance = this;
 
 						instance._markersArray = [];
-					},
-
-					renderUI: function() {
-						var instance = this;
-
-						if (instance._isGoogleMapLoaded()) {
-							instance._renderMap();
-						}
-						else {
-							instance._initGoogleMaps();
-						}
 					},
 
 					bindUI: function() {
@@ -163,16 +152,15 @@ AUI.add(
 						A.Array.invoke(instance._eventHandles, 'detach');
 					},
 
-					initializePage: function(config) {
+					renderUI: function() {
 						var instance = this;
 
-						instance._headquartersAddressShort = config.headquartersAddressShort;
-						instance._headquartersLat = config.headquartersLat;
-						instance._headquartersLng = config.headquartersLng;
-
-						instance._officeAddressShort = config.officeAddressShort;
-						instance._officeLat = config.officeLat;
-						instance._officeLng = config.officeLng;
+						if (instance._isGoogleMapLoaded()) {
+							instance._renderMap();
+						}
+						else {
+							instance._initGoogleMaps();
+						}
 					},
 
 					_attachInstructionText: function(marker, text) {
@@ -273,15 +261,15 @@ AUI.add(
 					_isDirectionFilled: function() {
 						var instance = this;
 
-						var directionFilled = false;
+						var isDirectionFilled = false;
 
 						if (instance.get(STR_DIRECTION_ADDRESS)) {
 							if (instance.byId(STR_DIRECTION_ADDRESS).val()) {
-								directionFilled = true;
+								isDirectionFilled = true;
 							}
 						}
 
-						return directionFilled;
+						return isDirectionFilled;
 					},
 
 					_isGoogleMapLoaded: function() {
@@ -322,8 +310,6 @@ AUI.add(
 							else {
 								instance._infoWindow.setContent(address);
 							}
-
-							instance._replaceInfoWindowContent();
 
 							instance._infoWindow.setPosition(location);
 
@@ -440,9 +426,7 @@ AUI.add(
 							}
 						);
 
-						instance._infoWindow = new googleMaps.InfoWindow();
-
-						var infoWindow = instance._infoWindow;
+						instance._stepDisplay = new googleMaps.InfoWindow();
 
 						if (instance._isDirectionFilled()) {
 							instance._getDirections();
@@ -450,83 +434,6 @@ AUI.add(
 						else {
 							instance._getAddress(instance.get(STR_MAP_ADDRESS));
 						}
-
-						var instancedMap = instance._map;
-
-						var officeLink = A.one('.footer-info .office');
-
-						var headquartersLink = A.one('.footer-info .headquarters');
-
-						var markers = instance._markersArray;
-
-						function setMapOnAll(instancedMap) {
-							for (var i = 0; i < markers.length; i++) {
-								markers[i].setMap(instancedMap);
-							}
-						}
-
-						function _changeAddress() {
-							var latitude;
-							var longitude;
-							var shortAddress;
-
-							if (this.hasClass('headquarters')) {
-								latitude = instance._headquartersLat;
-								longitude = instance._headquartersLng;
-								shortAddress = instance._headquartersAddressShort;
-							}
-							else {
-								latitude = instance._officeLat;
-								longitude = instance._officeLng;
-								shortAddress = instance._officeAddressShort;
-							}
-
-							if (!infoWindow) {
-								infoWindow = new googleMaps.InfoWindow(
-									{
-										content: shortAddress
-									}
-								);
-							}
-							else {
-								infoWindow.setContent(shortAddress);
-							}
-
-							instance._removeMarkers();
-
-							var marker = new googleMaps.Marker(
-								{
-									map: instancedMap,
-									position: new googleMaps.LatLng(latitude, longitude),
-									title: shortAddress
-								}
-							);
-
-							infoWindow.open(instancedMap, marker);
-
-							instance._replaceInfoWindowContent();
-
-							markers.push(marker);
-
-							instancedMap.panTo(marker.getPosition());
-						}
-
-						setMapOnAll(instancedMap);
-
-						officeLink.on('click', _changeAddress);
-						headquartersLink.on('click', _changeAddress);
-					},
-
-					_replaceInfoWindowContent: function() {
-						var instance = this;
-
-						var infoWindow = instance._infoWindow;
-
-						var infoWindowContent = infoWindow.getContent();
-
-						infoWindowContent = infoWindowContent.replace(',', ', ');
-
-						infoWindow.setContent(infoWindowContent);
 					},
 
 					_showSteps: function(directionResult) {
@@ -545,8 +452,8 @@ AUI.add(
 						for (var i = 0; i < stepsCount; i++) {
 							var marker = new googleMaps.Marker(
 								{
-									map: instance._map,
-									position: myRoute.steps[i].start_point
+									position: myRoute.steps[i].start_point,
+									map: instance._map
 								}
 							);
 
