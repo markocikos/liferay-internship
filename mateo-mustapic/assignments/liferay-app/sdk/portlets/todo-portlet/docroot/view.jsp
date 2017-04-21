@@ -16,4 +16,11 @@
 
 <%@ include file="/init.jsp" %>
 
-This is the <b>todo</b> portlet.
+<div class="wrapper">
+	<div class="inputDiv">
+		<h2>To do list <span aria-hidden="true" class="icon-check"></span></h2>
+			<input class="myInput" placeholder="Title of new task..." type="text">
+			<span class="addItem">Add</span>
+	</div>
+	<span class="myCounter"></span> character(s) remaining
+</div>
