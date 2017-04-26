@@ -19,6 +19,8 @@ AUI.add(
 
 							var officeAddressShort = config.officeAddressShort;
 
+							officeAddressShort = officeAddressShort.replace(',', ', ');
+
 							instance._headquartersAddressShort = config.headquartersAddressShort;
 							instance._headquartersLat = config.headquartersLat;
 							instance._headquartersLng = config.headquartersLng;
@@ -101,8 +103,6 @@ AUI.add(
 								}
 							);
 
-							marker.setMap(googleMapsWidget);
-
 							infoWindow.open(map, marker);
 
 							googleMapsWidget._marker = marker;
@@ -128,6 +128,18 @@ AUI.add(
 		);
 
 		Liferay.Portlet.PerzejSiteFooter = PerzejSiteFooter;
+
+		var locations = A.all('.location');
+
+		locations.each(
+			function(location) {
+				var contentNode = location.one('.content');
+
+				var contentNodeText = contentNode.text();
+
+				contentNode.set('text', contentNodeText.replace(',', ', '));
+			}
+		);
 	},
 	'',
 	{
