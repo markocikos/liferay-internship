@@ -16,8 +16,6 @@
 	<body class="$css_class">
 		$theme.include($body_top_include)
 
-		#dockbar()
-
 		<div class="container-fluid" class="wrapper">
 			<header class="banner" role="banner">
 				<div class="heading">
@@ -33,8 +31,6 @@
 						#end
 					</h1>
 				</div>
-
-				#parse ("$full_templates_path/navigation.vm")
 
 			</header>
 
