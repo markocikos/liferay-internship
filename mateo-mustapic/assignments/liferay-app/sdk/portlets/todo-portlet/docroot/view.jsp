@@ -16,7 +16,7 @@
 
 <%@ include file="/init.jsp" %>
 
-<div>
+<div class="mainWrapper">
 	<h2>
 		<liferay-ui:message key="to-do-list" />
 
@@ -40,7 +40,7 @@
 		<li>Monday 17/April - Meeting at 1pm</li>
 		<li>Saturday 9am - Football practice</li>
 		<li>Thursday 9 pm - Dinner with friends</li>
-	</ul>
+</ul>
 
 <div class="yui3-skin-sam">
 	<div id="modal">
