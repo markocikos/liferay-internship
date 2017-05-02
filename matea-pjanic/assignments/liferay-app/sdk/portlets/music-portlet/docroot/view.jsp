@@ -21,7 +21,9 @@
 		<a class="accountlink"><%= themeDisplay.getUser().getFirstName() %></a>
 	</div>
 </div>
-<h3>Discover, stream & share music</h3>
+<h3>
+	<liferay-ui:message key="discovers-stream-and-share-music" />
+</h3>
 
 <liferay-portlet:actionURL name="search" var="searchURL" />
 
