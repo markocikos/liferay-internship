@@ -16,7 +16,7 @@
 
 <%@ include file="/init.jsp" %>
 
-<div>
+<div class="list-container">
 	<h2>
 		<liferay-ui:message key="to-do-list" />
 
@@ -35,3 +35,22 @@
 <span class="counter"></span>
 
 <liferay-ui:message key="characters-remaining" />
+
+<ul class="taskUl">
+		<li>Monday 17/April - Meeting at 1pm</li>
+		<li>Saturday 9am - Football practice</li>
+		<li>Thursday 9 pm - Dinner with friends</li>
+</ul>
+
+<div class="yui3-skin-sam">
+	<div id="modal">
+			</div>
+</div>
+
+<aui:script use="addCloseButton">
+		new Liferay.Portlet.addCloseButton(
+		{
+		namespace: '<portlet:namespace />'
+		}
+		);
+</aui:script>
