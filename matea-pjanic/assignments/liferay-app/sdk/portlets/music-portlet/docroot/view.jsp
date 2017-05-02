@@ -16,21 +16,23 @@
 
 <%@ include file="/init.jsp" %>
 
-<div class="accountdiv">
-	<div class="accountwrapper">
-		<a class="accountlink"><%= themeDisplay.getUser().getFirstName() %></a>
+	<div class="accountdiv">
+		<div class="accountwrapper">
+			<aui:a class="accountlink" href="javascript:;"><%= themeDisplay.getUser().getFirstName() %>
+			</aui:a>
+		</div>
 	</div>
-</div>
-<h3>
-	<liferay-ui:message key="discovers-stream-and-share-music" />
-</h3>
 
-<liferay-portlet:actionURL name="search" var="searchURL" />
+	<h3>
+		<liferay-ui:message key="discovers-stream-and-share-music" />
+	</h3>
 
-<aui:form action="<%= searchURL %>" name="fm">
-	<aui:fieldset>
-		<aui:input label="" name="music" placeholder="search-for-music" type="text" />
-	</aui:fieldset>
+	<liferay-portlet:actionURL name="search" var="searchURL" />
 
-	<aui:button type="submit" value="search" />
-</aui:form>
+	<aui:form action="<%= searchURL %>" name="fm">
+		<aui:fieldset>
+			<aui:input label="" name="music" placeholder="search-for-music" type="text" />
+		</aui:fieldset>
+
+		<aui:button type="submit" value="search" />
+	</aui:form>

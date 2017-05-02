@@ -1,4 +1,4 @@
-$black: #000000;
+$black: #000;
 $darkyellow: #FFBC42;
 
 .aui {
@@ -33,7 +33,7 @@ $darkyellow: #FFBC42;
 		width: 387px;
 
 		&:hover {
-	 		opacity: 0.8;
+			opacity: 0.8;
 		}
 	}
 
@@ -42,8 +42,8 @@ $darkyellow: #FFBC42;
 	}
 
 	h3 {
-		line-height: 60px;
 		font-size: 60px;
+		line-height: 60px;
 		margin: 350px 0 20px 0;
 	}
 
@@ -56,8 +56,8 @@ $darkyellow: #FFBC42;
 		width: 100px;
 
 		&:hover {
-			  background: $darkyellow;
-			  opacity: 1;
+			background: $darkyellow;
+			opacity: 1;
 		}
 	}
 
@@ -77,21 +77,21 @@ $darkyellow: #FFBC42;
 }
 
 .accountwrapper {
-	display: inline-block;
 	border-radius: 3px;
 	border-style: solid;
+	display: inline-block;
 	height: auto;
 	padding: 3px;
 	text-align: center;
 	width: 100px;
 
 	&:hover {
-		 opacity: 0.7;
+		opacity: 0.7;
 	}
 }
 
 .container-fluid {
-	background-image: url("../images/custom/front.jpg");
+	background-image: url(../images/custom/front.jpg);
 	background-position: center top;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -107,7 +107,7 @@ $darkyellow: #FFBC42;
 }
 
 @media only screen and (max-width: 1200px) {
-	.aui{
+	.aui {
 		.fieldset {
 			width: 300px;
 		}
@@ -138,12 +138,11 @@ $darkyellow: #FFBC42;
 		border-color: $darkyellow;
 
 		&:hover {
-	 		opacity: 0.8;
+			opacity: 0.8;
 		}
 	}
 
 	.aui {
-
 		a {
 			color: $darkyellow;
 		}
@@ -162,7 +161,6 @@ $darkyellow: #FFBC42;
 
 @media only screen and (max-width: 500px) {
 	.aui {
-
 		h3 {
 			font-size: 40px;
 			margin-top: 100px;
