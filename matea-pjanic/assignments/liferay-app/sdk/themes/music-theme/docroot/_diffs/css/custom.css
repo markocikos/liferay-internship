@@ -20,6 +20,10 @@ $darkyellow: #FFBC42;
 		margin: 50px 0;
 	}
 
+	img {
+		width: 20px;
+	}
+
 	input[type="text"] {
 		font-size: 14px;
 		height: 20px;
