@@ -1,129 +1,192 @@
-$darkgray: #A9A9A9;
-$dimgray: #696969;
-$gainsboro: #DCDCDC;
-$white: #FFF;
+$black: #000;
+$darkyellow: #FFBC42;
 
 .aui {
 	a {
-		color: $darkgray;
+		color: $black;
 
 		&:hover {
-			color: $dimgray;
 			text-decoration: none;
 		}
 	}
 
+	body {
+		padding: 0;
+	}
+
+	form {
+		align-items: flex-start;
+		display: flex;
+		margin: 50px 0;
+	}
+
+	img {
+		width: 20px;
+	}
+
+	input[type="text"] {
+		font-size: 14px;
+		height: 20px;
+		margin: 0;
+		opacity: 0.7;
+		padding: 8px 6px;
+		width: 387px;
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
 	h1 {
-		margin: 0;
-		margin-bottom: 50px;
+		line-height: 20px;
 	}
 
-	ul {
-		margin: 0;
+	h3 {
+		font-size: 60px;
+		line-height: 60px;
+		margin: 350px 0 20px 0;
 	}
 
-	.dockbar .navbar-inner {
-		background-color: transparent;
+	.btn {
+		background: $darkyellow;
+		font-size: 14px;
+		margin: 0;
+		opacity: 0.9;
+		padding: 8px;
+		width: 100px;
+
+		&:hover {
+			background: $darkyellow;
+			opacity: 1;
+		}
 	}
 
-	.nav {
-		margin: 0;
+	.fieldset {
+		width: 400px;
 	}
+}
 
-	.nav-collapse .nav {
-		margin: 0;
+.accountdiv {
+	display: flex;
+	justify-content: flex-end;
+	margin: 10px 0;
+}
+
+.accountlink {
+	position: relative;
+}
+
+.accountwrapper {
+	border-radius: 3px;
+	border-style: solid;
+	display: inline-block;
+	height: auto;
+	padding: 3px;
+	text-align: center;
+	width: 100px;
+
+	&:hover {
+		opacity: 0.7;
 	}
 }
 
 .container-fluid {
-	margin: 20px 80px;
-}
-
-.navbar-inner {
-	background-color: transparent;
-}
-
-.navigation {
-	border: 1px solid $darkgray;
-	border-width: 1px 0;
-	position: relative;
-	text-align: center;
-	z-index: 1;
-
-	ul li {
-		display: inline-block;
-		margin: 10px 40px;
-	}
-}
-
-.portlet-dockbar {
-	background-color: $white;
-	float: right;
-	margin-right: 100px;
-	width: 200px;
+	background-image: url(../images/custom/front.jpg);
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 800px;
 }
 
 .site-name {
-	color: $darkgray;
-	font-size: 18px;
+	font-size: 16px;
 }
 
-.user-avatar-link {
-	width: 100px;
+.site-title {
+	position: absolute;
 }
 
 @media only screen and (max-width: 1200px) {
-	.navigation ul li {
-		margin: 10px 30px;
+	.aui {
+		.fieldset {
+			width: 300px;
+		}
+
+		input[type="text"] {
+			width: 287px;
+		}
+
+		h3 {
+			font-size: 50px;
+			margin-top: 250px;
+		}
+	}
+
+	.container-fluid {
+		height: 600px;
 	}
 }
 
-@media only screen and (max-width: 979px) {
-	.aui .dockbar .navbar-inner {
-		float: right;
-		padding: 0;
-		width: 50px;
-
-		.container {
-			.nav-account-controls {
-				background-color: $gainsboro;
-			}
-
-			.btn.btn-navbar:first-child {
-				display: none;
-			}
-		}
+@media only screen and (max-width: 1040px) {
+	.aui h3 {
+		width: 700px;
 	}
 }
 
 @media only screen and (max-width: 800px) {
-	.navigation ul li {
-		margin: 10px 20px;
-	}
-}
+	.accountwrapper {
+		border-color: $darkyellow;
 
-@media only screen and (max-width: 600px) {
-	.navigation ul li {
-		margin: 10px;
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
+	.aui {
+		a {
+			color: $darkyellow;
+		}
+
+		h3 {
+			font-size: 45px;
+			width: 500px;
+		}
+	}
+
+	.content {
+		margin-left: 10px;
+		margin-right: 10px;
 	}
 }
 
 @media only screen and (max-width: 500px) {
-	.container-fluid {
-		margin: 20px;
+	.aui {
+		h3 {
+			font-size: 40px;
+			margin-top: 100px;
+			width: 360px;
+		}
 	}
 
-	.portlet-dockbar {
-		margin-right: 40px;
+	.container-fluid {
+		height: 350px;
 	}
 }
 
 @media only screen and (max-width: 400px) {
-	.container-fluid {
-		margin: 10px;
-	}
+	.aui {
+		h3 {
+			font-size: 30px;
+			line-height: 40px;
+			width: 300px;
+		}
 
-	.navigation ul li {
-		margin: 10px 6px;
+		.fieldset {
+			width: 220px;
+		}
+
+		input {
+			width: 207px;
+		}
 	}
 }
