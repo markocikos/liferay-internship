@@ -16,6 +16,13 @@
 
 <%@ include file="/init.jsp" %>
 
+<div class="accountdiv">
+	<div class="accountwrapper">
+		<a class="accountlink"><%= themeDisplay.getUser().getFirstName() %></a>
+	</div>
+</div>
+<h3>Discover, stream & share music</h3>
+
 <liferay-portlet:actionURL name="search" var="searchURL" />
 
 <aui:form action="<%= searchURL %>" name="fm">
