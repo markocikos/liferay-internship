@@ -1,129 +1,314 @@
-$darkgray: #A9A9A9;
-$dimgray: #696969;
-$gainsboro: #DCDCDC;
-$white: #FFF;
+$black: #000;
+$darkyellow: #FFBC42;
 
 .aui {
 	a {
-		color: $darkgray;
+		color: $black;
 
 		&:hover {
-			color: $dimgray;
 			text-decoration: none;
 		}
 	}
 
+	body {
+		padding: 0;
+	}
+
+	form {
+		align-items: flex-start;
+		display: flex;
+		margin: 50px 0;
+	}
+
+	input[type="text"] {
+		font-size: 14px;
+		height: 20px;
+		margin: 0;
+		opacity: 0.7;
+		padding: 8px 6px;
+		width: 387px;
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
 	h1 {
-		margin: 0;
-		margin-bottom: 50px;
+		line-height: 20px;
 	}
 
-	ul {
-		margin: 0;
+	h2 {
+		font-size: 60px;
+		line-height: 60px;
+		margin: 350px 0 20px 0;
 	}
 
-	.dockbar .navbar-inner {
-		background-color: transparent;
+	P {
+		font-size: 12px;
+		margin: 0 0 0 10px;
+		text-align: left;
 	}
 
-	.nav {
+	.btn {
+		background: $darkyellow;
+		font-size: 14px;
 		margin: 0;
+		opacity: 0.9;
+		padding: 8px;
+		width: 100px;
+
+		&:hover {
+			background: $darkyellow;
+			opacity: 1;
+		}
 	}
 
-	.nav-collapse .nav {
-		margin: 0;
+	.fieldset {
+		width: 400px;
 	}
+}
+
+.accountdiv {
+	display: flex;
+	justify-content: flex-end;
+	margin: 10px 0;
+}
+
+.accountlink {
+	position: relative;
+}
+
+.accountwrapper {
+	border-radius: 3px;
+	border-style: solid;
+	display: inline-block;
+	height: auto;
+	padding: 3px;
+	text-align: center;
+	width: 100px;
+
+	&:hover {
+		opacity: 0.7;
+	}
+}
+
+.adelephoto {
+	background-image: url(../images/custom/adele.jpg);
+}
+
+.alicephoebephoto {
+	background-image: url(../images/custom/alicephoebe.jpg);
+}
+
+.chainsmokersphoto {
+	background-image: url(../images/custom/chainsmokers.jpg);
+}
+
+.chrisphoto {
+	background-image: url(../images/custom/chris.jpg);
 }
 
 .container-fluid {
-	margin: 20px 80px;
+	background-image: url(../images/custom/front.jpg);
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 800px;
 }
 
-.navbar-inner {
-	background-color: transparent;
+.deadmausphoto {
+	background-image: url(../images/custom/deadmau5.jpg);
 }
 
-.navigation {
-	border: 1px solid $darkgray;
-	border-width: 1px 0;
-	position: relative;
-	text-align: center;
-	z-index: 1;
-
-	ul li {
-		display: inline-block;
-		margin: 10px 40px;
-	}
+.frontpagecontent {
+	margin-top: 300px;
 }
 
-.portlet-dockbar {
-	background-color: $white;
-	float: right;
-	margin-right: 100px;
-	width: 200px;
+.josephoto {
+	background-image: url(../images/custom/jose.jpg);
+}
+
+.kodakblackphoto {
+	background-image: url(../images/custom/tunelvision.jpg);
+}
+
+.leraphoto {
+	background-image: url(../images/custom/lera.jpg);
+}
+
+.logo {
+	width: 20px;
+}
+
+.omamphoto {
+	background-image: url(../images/custom/omam.jpg);
+}
+
+.playbutton {
+	bottom: 0;
+	display: none;
+	left: 0;
+	margin: auto;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 40px;
 }
 
 .site-name {
-	color: $darkgray;
-	font-size: 18px;
+	font-size: 16px;
 }
 
-.user-avatar-link {
-	width: 100px;
+.site-title {
+	position: absolute;
 }
 
-@media only screen and (max-width: 1200px) {
-	.navigation ul li {
-		margin: 10px 30px;
-	}
+.sturgillphoto {
+	background-image: url(../images/custom/sturgill.jpg);
 }
 
-@media only screen and (max-width: 979px) {
-	.aui .dockbar .navbar-inner {
-		float: right;
-		padding: 0;
-		width: 50px;
+.tracks {
+	text-align: center;
+}
 
-		.container {
-			.nav-account-controls {
-				background-color: $gainsboro;
-			}
+.tracks div {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1000px;
+}
 
-			.btn.btn-navbar:first-child {
-				display: none;
-			}
+.tracks div div {
+	display: inline-block;
+	margin: 10px;
+	margin-bottom: 0;
+}
+
+.tracks div div div {
+	background-position: top;
+	background-size: cover;
+	height: 150px;
+	position: relative;
+	width: 150px;
+
+	&:hover {
+		opacity: 0.7;
+
+		.playbutton {
+			display: block;
 		}
 	}
 }
 
-@media only screen and (max-width: 800px) {
-	.navigation ul li {
-		margin: 10px 20px;
+@media only screen and (max-width: 1200px) {
+	.aui {
+		.fieldset {
+			width: 300px;
+		}
+
+		input[type="text"] {
+			width: 287px;
+		}
+
+		h2 {
+			font-size: 50px;
+			margin-top: 250px;
+		}
+	}
+
+	.frontpagecontent {
+		margin-top: 200px;
+	}
+
+	.container-fluid {
+		height: 600px;
 	}
 }
 
-@media only screen and (max-width: 600px) {
-	.navigation ul li {
-		margin: 10px;
+@media only screen and (max-width: 1040px) {
+	.aui h2 {
+		width: 700px;
+	}
+
+	.frontpagecontent {
+		margin-top: 150px;
+	}
+
+	.tracks div div div  {
+		height: 120px;
+		width: 120px;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.accountwrapper {
+		border-color: $darkyellow;
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
+	.aui {
+		a {
+			color: $darkyellow;
+		}
+
+		h2 {
+			font-size: 45px;
+			width: 500px;
+		}
+	}
+
+	.content {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+
+	.frontpagecontent {
+		margin-top: 120px;
 	}
 }
 
 @media only screen and (max-width: 500px) {
-	.container-fluid {
-		margin: 20px;
+	.aui {
+		h2 {
+			font-size: 40px;
+			margin-top: 100px;
+			width: 360px;
+		}
 	}
 
-	.portlet-dockbar {
-		margin-right: 40px;
+	.container-fluid {
+		height: 370px;
+	}
+
+	.frontpagecontent {
+		margin-top: 0;
 	}
 }
 
 @media only screen and (max-width: 400px) {
-	.container-fluid {
-		margin: 10px;
+	.aui {
+		h2 {
+			font-size: 30px;
+			line-height: 40px;
+			width: 300px;
+		}
+
+		input {
+			width: 207px;
+		}
+
+		.fieldset {
+			width: 220px;
+		}
 	}
 
-	.navigation ul li {
-		margin: 10px 6px;
+	.frontpagecontent {
+		margin-top: 60px;
+	}
+
+	.tracks div div {
+		margin: 0;
 	}
 }
