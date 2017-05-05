@@ -24,7 +24,7 @@
 	</h2>
 
 	<div class="task-container">
-		<aui:input class="input-item" name="task" />
+		<aui:input cssClass="input-item" class="input-item" name="task" />
 
 		<aui:button cssClass="add-task" name="add" type="button" />
 
@@ -32,7 +32,9 @@
 
 		<liferay-ui:message key="characters-remaining" />
 
-		<ul class="task-list" />
+		<ul class="task-list">
+			<li>Task 1 <button class="delete-todo">X</button></li>
+		</ul>
 	</div>
 </div>
 

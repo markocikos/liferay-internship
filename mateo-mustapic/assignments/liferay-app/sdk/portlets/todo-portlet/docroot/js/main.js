@@ -46,11 +46,10 @@ AUI.add(
 
 						var taskInput = instance.byId('task');
 
-						if (taskInput) {
-							taskInput.on('key', A.bind('_appendTodoList', instance), 'enter');
+						taskInput.on('key', A.bind('_appendTodoList', instance), 'enter');
 
-							instance._taskInput = taskInput;
-						}
+						instance._taskInput = taskInput;
+
 					},
 
 					_appendTodoList: function(event) {
@@ -59,7 +58,7 @@ AUI.add(
 						var taskInput = instance._taskInput;
 						var todoList = instance._todoList;
 
-						if (taskInput && todoList) {
+						if (taskInput.val() !== '' && todoList) {
 							var taskHtml = A.Lang.sub(
 								TPL_TASK,
 								{
@@ -70,6 +69,10 @@ AUI.add(
 							todoList.append(taskHtml);
 
 							taskInput.val('');
+						}
+
+						else if (taskInput.val() === '') {
+							alert('Please enter some value');
 						}
 					}
 				}
