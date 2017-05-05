@@ -1,4 +1,3 @@
-<%--
 /**
  * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
@@ -12,14 +11,20 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
---%>
 
-<%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
+package com.liferay.perzej;
 
-<%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %>
-<%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
-<%@ page import="com.liferay.todo.TodoPortletProps" %>
-<%@ page import="com.liferay.portal.util.PortalUtil" %>
-<%@ page import="com.liferay.util.portlet.PortletProps" %>
+import com.liferay.util.portlet.PortletProps;
 
-<portlet:defineObjects />
+/**
+ * @author Mateo Mustapic
+ */
+public class TodoPortletProps {
+
+	public static String get(String key) {
+		String value = PortletProps.get(key);
+
+		return value.replaceAll(",(\\S)", ", $1");
+	}
+
+}
