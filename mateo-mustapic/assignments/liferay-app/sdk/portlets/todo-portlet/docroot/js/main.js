@@ -59,7 +59,7 @@ AUI.add(
 						var taskInput = instance._taskInput;
 						var todoList = instance._todoList;
 
-						if (taskInput && todoList) {
+						if (taskInput.val() !== '' && todoList) {
 							var taskHtml = A.Lang.sub(
 								TPL_TASK,
 								{
@@ -70,6 +70,10 @@ AUI.add(
 							todoList.append(taskHtml);
 
 							taskInput.val('');
+						}
+
+						else if (taskInput.val() === '') {
+							alert('Please enter some value');
 						}
 					}
 				}
