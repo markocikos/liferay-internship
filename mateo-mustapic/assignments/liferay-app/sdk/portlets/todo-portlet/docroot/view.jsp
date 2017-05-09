@@ -24,21 +24,25 @@
 	</h2>
 
 	<div class="task-container">
-		<aui:input cssClass="input-item" name="task" />
+		<aui:input class="input-item" cssClass="input-item" name="task" placeholder="Enter your task.." />
 
-		<aui:button cssClass="add-task" name="add" />
+		<aui:button cssClass="add-task" name="add" value="add" />
 
-		<span class="counter">30</span>
+		<span class="counter">40</span>
 
 		<liferay-ui:message key="characters-remaining" />
 
 		<ul class="task-list">
 			<li>
 				<liferay-ui:message key="sample-task" />
-
-				<i class="icon-remove"></i>
+				<button class="delete-task">
+					<i class="icon-remove"></i>
+				</button>
 			</li>
 		</ul>
+		<hr>
+		<div class="finished-task">
+		</div>
 	</div>
 </div>
 

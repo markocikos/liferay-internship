@@ -1,14 +1,33 @@
 .todo-portlet {
-	.add-task {
-		background-color: #1A75FF;
+	#_todo_WAR_todoportlet_task {
+		-moz-box-sizing: content-box;
+		border: 1px solid #CCC;
+		border-radius: 10px;
+		box-sizing: content-box;
+		float: left;
+		font-size: 16px;
+		height: 18px;
+		margin: auto;
+		padding-bottom: 10px;
+		padding-left: 1%;
+		padding-top: 10px;
+		width: 85%;
+	}
+
+	#_todo_WAR_todoportlet_add {
+		background-color: royalblue;
+		background-image: none;
 		border-radius: 10px;
 		border-width: 0;
 		color: white;
 		cursor: pointer;
 		display: inline-block;
 		font-size: 16px;
-		margin: 4px 2px;
-		padding: 15px 32px;
+		margin-bottom: 5px;
+		margin-left: 3px;
+		margin-top: -25px;
+		padding-bottom: 10px;
+		padding-top: 10px;
 		text-align: center;
 		text-decoration: none;
 		width: 11%;
@@ -23,18 +42,27 @@
 		margin-left: 1%;
 	}
 
-	.input-item {
-		border: 1px solid #CCC;
+	.finished-task {
+		background-color: #FF6B68;
 		border-radius: 10px;
-		box-sizing: border-box;
-		float: left;
+		color: white;
+		cursor: pointer;
 		font-size: 16px;
-		height: 18px;
+		padding: 8px 8px 8px 8px;
+	}
+
+	.delete-task {
+		background: #E1E6EF;
+		border-width: 0;
+		color: white;
 		margin: auto;
-		padding-bottom: 20px;
-		padding-left: 2%;
-		padding-top: 20px;
-		width: 87%;
+		position: absolute;
+		right: 0;
+		top: 0;
+
+		&:hover {
+			background-color: #757C87;
+		}
 	}
 
 	.list-container {
@@ -60,7 +88,7 @@
 			cursor: pointer;
 			font-size: 16px;
 			list-style-type: none;
-			padding: 8px 10px 8px 4px;
+			padding: 8px 0 8px 8px;
 			position: relative;
 			transition: 0.2s;
 			user-select: none;
@@ -72,21 +100,43 @@
 	}
 
 	@media screen and (max-width: 600px) {
-		.counter {
-			font-weight: bold;
-		}
-
 		.list-container h2 {
 			text-align: center;
 		}
 
 		.task-list {
-			margin-right: 3%;
+			margin-right: 5%;
 		}
 
-		.task-list li, .add-item, .input-item {
+		.finished-task {
+			width: 95%;
+		}
+
+		#_todo_WAR_todoportlet_task {
 			border-radius: 0;
+			width: 97%;
+		}
+
+		.task-list li, #_todo_WAR_todoportlet_add {
 			width: 100%;
+		}
+
+		.task-list li, #_todo_WAR_todoportlet_add, .finished-task {
+			border-radius: 0;
+		}
+
+		#_todo_WAR_todoportlet_add {
+			margin: 0;
+		}
+
+		.delete-task {
+			border-radius: 0;
+		}
+
+		span {
+		&.counter {
+			font-weight: bold;
+			}
 		}
 	}
 }

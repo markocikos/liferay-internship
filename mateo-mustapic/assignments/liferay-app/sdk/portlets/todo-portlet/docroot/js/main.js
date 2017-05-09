@@ -1,11 +1,27 @@
 AUI.add(
 	'todo',
 	function(A) {
+		var counterVariable = new A.CharCounter(
+			{
+
+			input: '.input-item',
+
+			counter: '.counter',
+
+			maxLength: 40
+		});
+
 		var EVENT_CLICK = 'click';
+
+		var TASK_FINISHED = '<div class="finished-task">' +
+			'Task finished!' +
+			'</div>';
 
 		var TPL_TASK = '<li>' +
 				'{task}' +
-				'<i class="icon-remove"></i>' +
+				'<button class="delete-task">' +
+					'<i class="icon-remove"></i>' +
+				'</button>' +
 			'</li>';
 
 		var Todo = A.Component.create(
@@ -22,6 +38,8 @@ AUI.add(
 
 						var todoList = instance.one('.task-container ul');
 
+						var finishedTask = instance.one('.finished-task').hide();
+
 						if (todoList) {
 							todoList.delegate(
 								EVENT_CLICK,
@@ -31,6 +49,9 @@ AUI.add(
 									var listItem = currentTarget.ancestor('li');
 
 									listItem.remove();
+
+									finishedTask.show();
+									finishedTask.append(TASK_FINISHED);
 								},
 								'button'
 							);
@@ -81,6 +102,6 @@ AUI.add(
 
 	'',
 	{
-		requires: ['event-key', 'node-event-delegate']
+		requires: ['aui-char-counter', 'event-key', 'node-event-delegate']
 	}
 );
