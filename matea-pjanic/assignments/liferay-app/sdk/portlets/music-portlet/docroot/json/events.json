@@ -1,0 +1,27 @@
+[
+
+  {
+    "_artist": "Jason Isbell and the 400 Unit",
+    "_name": "tour-of-duty",
+    "_location_country": "al-usa",
+    "_location_city": "florence",
+    "_date": 1494615600
+  },
+
+  {
+    "_artist": "Janet Jackson",
+    "_name": "state-of-the-world-tour",
+    "_location_country": "la-usa",
+    "_location_city": "lafayette",
+    "_date": 1504810800
+  },
+
+  {
+    "_artist": "The Cranberries",
+    "_name": "something-else-tour",
+    "_location_country": "belgium",
+    "_location_city": "brussels",
+    "_date": 1494280800
+  }
+
+]

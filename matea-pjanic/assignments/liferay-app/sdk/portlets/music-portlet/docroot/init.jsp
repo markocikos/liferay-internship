@@ -21,7 +21,27 @@
 <%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 <%@ taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %>
 
-<%@ page import="com.liferay.portal.util.PortalUtil" %>
+<%@ page import="com.google.gson.Gson" %><%@
+page import="com.google.gson.reflect.TypeToken" %>
+
+<%@ page import="com.liferay.music.portlet.model.Album" %><%@
+page import="com.liferay.music.portlet.model.Bend" %><%@
+page import="com.liferay.music.portlet.model.Event" %><%@
+page import="com.liferay.portal.kernel.util.FastDateFormatFactoryUtil" %><%@
+page import="com.liferay.portal.kernel.util.StringUtil" %><%@
+page import="com.liferay.portal.util.PortalUtil" %>
+
+<%@ page import="java.io.InputStream" %>
+
+<%@ page import="java.lang.reflect.Type" %>
+
+<%@ page import="java.text.Format" %>
+
+<%@ page import="java.time.Year" %>
+
+<%@ page import="java.util.ArrayList" %><%@
+page import="java.util.Date" %><%@
+page import="java.util.List" %>
 
 <liferay-theme:defineObjects />
 

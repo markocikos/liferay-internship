@@ -1,14 +1,6 @@
 $darkyellow: #FFBC42;
 $gray: #BDBDBD;
 
-.adele {
-	background-image: url(../images/adele.jpg);
-}
-
-.alicephoebephoto {
-	background-image: url(../images/alicephoebe.jpg);
-}
-
 .artist {
 	display: inline-block;
 	margin: 10px;
@@ -19,7 +11,7 @@ $gray: #BDBDBD;
 	text-transform: uppercase;
 }
 
-.artist-name, .artist-song {
+.artist-name, .artist-album {
 	font-size: 12px;
 	text-align: left;
 }
@@ -34,7 +26,7 @@ $gray: #BDBDBD;
 	&:hover {
 		opacity: 0.7;
 
-		.playbutton {
+		.play-button {
 			display: block;
 		}
 	}
@@ -42,14 +34,6 @@ $gray: #BDBDBD;
 
 .block {
 	border-top: 1px solid $gray;
-}
-
-.chainsmokers {
-	background-image: url(../images/chainsmokers.jpg);
-}
-
-.chrisphoto {
-	background-image: url(../images/chris.jpg);
 }
 
 .container-fluid {
@@ -60,35 +44,30 @@ $gray: #BDBDBD;
 	height: 800px;
 }
 
-.date {
-	padding: 0 80px;
-}
-
-.deadmausphoto {
-	background-image: url(../images/deadmau5.jpg);
-}
-
 .front-page-content {
 	margin-top: 300px;
 }
 
-.josephoto {
-	background-image: url(../images/jose.jpg);
+.more-info-td {
+	padding: 0;
 }
 
-.kodakblackphoto {
-	background-image: url(../images/tunelvision.jpg);
+.more-info-wrapper {
+	border-radius: 3px;
+	border-style: solid;
+	display: inline-block;
+	height: auto;
+	margin: 10px 0;
+	padding: 3px;
+	text-align: center;
+	width: 80px;
+
+	&:hover {
+		opacity: 0.7;
+	}
 }
 
-.leraphoto {
-	background-image: url(../images/lera.jpg);
-}
-
-.omamphoto {
-	background-image: url(../images/omam.jpg);
-}
-
-.playbutton {
+.play-button {
 	bottom: 0;
 	display: none;
 	left: 0;
@@ -99,11 +78,14 @@ $gray: #BDBDBD;
 	width: 40px;
 }
 
-.sturgillphoto {
-	background-image: url(../images/sturgill.jpg);
+.search-container {
+	align-items: flex-start;
+	display: flex;
+	margin: 50px 0;
 }
 
 .tracks-inner {
+	margin-bottom: 20px;
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 1000px;
@@ -144,16 +126,8 @@ $gray: #BDBDBD;
 		margin-right: 10px;
 	}
 
-	.date {
-		padding: 0 40px;
-	}
-
 	.front-page-content {
 		margin-top: 120px;
-	}
-
-	.more-info-wrapper {
-		width: 80px;
 	}
 }
 
@@ -165,14 +139,22 @@ $gray: #BDBDBD;
 	.front-page-content {
 		margin-top: 0;
 	}
+
+	.more-info-wrapper {
+		width: 50px;
+	}
 }
 
 @media only screen and (max-width: 400px) {
+	.artist {
+		margin: 0;
+	}
+
 	.front-page-content {
 		margin-top: 60px;
 	}
 
-	.artist {
-		margin: 0;
+	.tour-name {
+		display: none;
 	}
 }
