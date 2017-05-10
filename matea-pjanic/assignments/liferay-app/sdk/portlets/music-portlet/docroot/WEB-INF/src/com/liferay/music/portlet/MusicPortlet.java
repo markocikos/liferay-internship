@@ -24,6 +24,7 @@ import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 
+import java.io.IOException;
 import java.io.InputStream;
 
 import java.lang.reflect.Type;
@@ -31,19 +32,21 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.portlet.ActionRequest;
-import javax.portlet.ActionResponse;
+import javax.portlet.PortletException;
+import javax.portlet.ResourceRequest;
+import javax.portlet.ResourceResponse;
 
 /**
  * @author Matea Pjanic
  */
 public class MusicPortlet extends MVCPortlet {
 
-	public void search(
-			ActionRequest actionRequest, ActionResponse actionResponse)
-		throws Exception {
+	@Override
+	public void serveResource(
+			ResourceRequest resourceRequest, ResourceResponse resourceResponse)
+		throws IOException, PortletException {
 
-		String music = ParamUtil.getString(actionRequest, "music");
+		String music = ParamUtil.getString(resourceRequest, "input");
 
 		if (music == null) {
 			return;
@@ -81,7 +84,7 @@ public class MusicPortlet extends MVCPortlet {
 			_log.info(music + " was not found.");
 		}
 
-		actionResponse.setRenderParameter("jspPage", "/view.jsp");
+		super.serveResource(resourceRequest, resourceResponse);
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(MusicPortlet.class);
