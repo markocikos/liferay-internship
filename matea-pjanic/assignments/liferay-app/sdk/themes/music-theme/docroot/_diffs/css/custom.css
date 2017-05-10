@@ -8,6 +8,10 @@ table {
 	margin-top: 30px;
 }
 
+td {
+	padding-right: 40px;
+}
+
 tr {
 	border-bottom: 1px solid $black;
 	border-top: 1px solid $black;
@@ -25,12 +29,6 @@ tr {
 
 	body {
 		padding: 0;
-	}
-
-	form {
-		align-items: flex-start;
-		display: flex;
-		margin: 50px 0;
 	}
 
 	input[type="text"] {
@@ -60,20 +58,6 @@ tr {
 		text-align: center;
 	}
 
-	.btn {
-		background: $darkyellow;
-		font-size: 14px;
-		margin: 0;
-		opacity: 0.9;
-		padding: 8px;
-		width: 100px;
-
-		&:hover {
-			background: $darkyellow;
-			opacity: 1;
-		}
-	}
-
 	.fieldset {
 		width: 400px;
 	}
@@ -89,7 +73,7 @@ tr {
 	position: relative;
 }
 
-.account-wrapper, .more-info-wrapper {
+.account-wrapper {
 	border-radius: 3px;
 	border-style: solid;
 	display: inline-block;
@@ -109,6 +93,20 @@ tr {
 
 .logo {
 	width: 20px;
+}
+
+.search-button {
+	background: $darkyellow;
+	font-size: 14px;
+	margin: 0;
+	opacity: 0.9;
+	padding: 8px 16px;
+	width: 100px;
+
+	&:hover {
+		background: $darkyellow;
+		opacity: 1;
+	}
 }
 
 .site-name {
@@ -137,21 +135,33 @@ tr {
 }
 
 @media only screen and (max-width: 1040px) {
+	td {
+		padding-right: 30px;
+	}
+
 	.aui h2 {
 		width: 700px;
 	}
 }
 
 @media only screen and (max-width: 800px) {
-	.aui {
-		a {
-			color: $darkyellow;
-		}
+	td {
+		padding-right: 20px;
+	}
 
-		h2 {
-			font-size: 45px;
-			width: 500px;
-		}
+	.account-link {
+		color: $darkyellow;
+	}
+
+	.aui h2 {
+		font-size: 45px;
+		width: 500px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	td {
+		font-size: 12px;
 	}
 }
 
@@ -166,10 +176,6 @@ tr {
 }
 
 @media only screen and (max-width: 400px) {
-	td {
-		font-size: 12px;
-	}
-
 	.aui {
 		h2 {
 			font-size: 30px;
@@ -177,7 +183,7 @@ tr {
 			width: 300px;
 		}
 
-		input {
+		input[type="text"] {
 			width: 207px;
 		}
 
