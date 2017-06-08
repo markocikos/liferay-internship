@@ -31,6 +31,8 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -51,6 +53,8 @@ public class MusicFiles {
 
 		GsonBuilder gsonBuilder = new GsonBuilder();
 
+		gsonBuilder.setPrettyPrinting();
+
 		gsonBuilder.setFieldNamingStrategy(customPolicy);
 
 		return gsonBuilder.create();
@@ -69,7 +73,21 @@ public class MusicFiles {
 	}
 
 	public List<Event> getEvents() {
-		return _events;
+
+		List<Event> events = _events;
+
+		Collections.sort(
+				events, new Comparator<Event>() {
+
+					@Override
+					public int compare(Event event1, Event event2) {
+						Long date1 = event1.getDate();
+						Long date2 = event2.getDate();
+						return date1.compareTo(date2);
+			}
+		});
+
+		return events;
 	}
 
 	private static <T> List<T> getList(InputStream is, Class<T> type)

@@ -21,10 +21,12 @@
 <%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 <%@ taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %>
 
-<%@ page import="com.liferay.music.portlet.model.Album" %><%@
-page import="com.liferay.music.portlet.model.Bend" %><%@
-page import="com.liferay.music.portlet.model.Event" %><%@
-page import="com.liferay.music.portlet.util.MusicFiles" %><%@
+<%@ page import="com.liferay.music.portlet.service.model.Album" %><%@
+page import="com.liferay.music.portlet.service.model.Bend" %><%@
+page import="com.liferay.music.portlet.service.model.Event" %><%@
+page import="com.liferay.music.portlet.service.service.AlbumLocalServiceUtil" %><%@
+page import="com.liferay.music.portlet.service.service.BendLocalServiceUtil" %><%@
+page import="com.liferay.music.portlet.service.service.EventLocalServiceUtil" %><%@
 page import="com.liferay.portal.util.PortalUtil" %>
 
 <%@ page import="java.util.*" %><%@
