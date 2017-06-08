@@ -14,7 +14,7 @@
  */
 --%>
 
-<%@ include file="/init.jsp" %>
+<%@ include file="init.jsp" %>
 
 <div class="list-container">
 	<div class="header">
@@ -41,6 +41,17 @@
 				<aui:button cssClass="delete-task" icon="icon-remove" size="large" />
 			</li>
 		</ul>
+		<div class="remaining-tasks-container">
+			<div class="remaining-tasks-count" style="float: left">
+			</div>
+			<div class="remaining-tasks">
+				<liferay-ui:message key="tasks-left" />
+			</div>
+		</div>
+		<div class="finished-task">
+			<ul class="finished-task-list">
+			</ul>
+		</div>
 	</div>
 </div>
 
