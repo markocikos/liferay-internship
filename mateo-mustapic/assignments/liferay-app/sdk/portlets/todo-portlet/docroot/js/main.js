@@ -3,9 +3,16 @@ AUI.add(
 	function(A) {
 		var EVENT_CLICK = 'click';
 
-		var TPL_TASK = '<li>' +
-				'{task}' +
-				'<i class="icon-remove"></i>' +
+		var TPL_FINISHED_TASK = '<li>{taskFinished} ' +
+				'<button>' +
+					'<i class="icon-trash"></i>' +
+				'</button>' +
+			'</li>';
+
+		var TPL_TASK = '<li>{task} ' +
+				'<button class="btn delete-task">' +
+					'<i class="icon-remove"></i>' +
+				'</button>' +
 			'</li>';
 
 		var Todo = A.Component.create(
@@ -20,7 +27,22 @@ AUI.add(
 					initializer: function(config) {
 						var instance = this;
 
+						new A.CharCounter(
+							{
+								counter: '.counter',
+								input: '.input-item',
+								maxLength: 35
+							});
+
 						var todoList = instance.one('.task-container ul');
+
+						var finishedTask = A.one('.finished-task');
+
+						var remainingDiv = A.one('.remaining-tasks-count');
+
+						var profileTasksCount = A.one('.profile-tasks-count');
+
+						var taskInput = instance.byId('task');
 
 						if (todoList) {
 							todoList.delegate(
@@ -31,6 +53,48 @@ AUI.add(
 									var listItem = currentTarget.ancestor('li');
 
 									listItem.remove();
+
+									if (finishedTask) {
+
+										var finishedHtml = A.Lang.sub(
+											TPL_FINISHED_TASK,
+											{
+												taskFinished: Liferay.Language.get('task-finished')
+											}
+										);
+
+										finishedTask.append(finishedHtml);
+
+										var taskList = A.one('.task-list');
+
+										var taskListLi = taskList.all('li');
+
+										var remainingCount = taskListLi.size();
+
+										if (remainingCount) {
+											remainingDiv.html(remainingCount);
+
+											profileTasksCount.html(remainingCount);
+										}
+										else if (remainingCount === 0) {
+											remainingDiv.html('0');
+
+											profileTasksCount.html('0');
+										}
+
+										var taskHistory = A.one('.history-list');
+
+										var emptyTaskHistory = A.one('.empty-task-history');
+
+										if (taskListLi) {
+
+											emptyTaskHistory.hide();
+
+											taskHistory.setStyle('visibility', 'visible');
+
+											taskHistory.append(listItem);
+										}
+									}
 								},
 								'button'
 							);
@@ -38,13 +102,27 @@ AUI.add(
 							instance._todoList = todoList;
 						}
 
+						if (finishedTask) {
+							finishedTask.delegate(
+								EVENT_CLICK,
+								function(event) {
+									var currentTarget = event.currentTarget;
+
+									var finishedItem = currentTarget.ancestor('li');
+
+									finishedItem.remove();
+								},
+								'button'
+							);
+
+							instance._finishedTask = finishedTask;
+						}
+
 						var addButton = instance.byId('add');
 
 						if (addButton) {
 							addButton.on(EVENT_CLICK, A.bind('_appendTodoList', instance));
 						}
-
-						var taskInput = instance.byId('task');
 
 						if (taskInput) {
 							taskInput.on('key', A.bind('_appendTodoList', instance), 'enter');
@@ -57,6 +135,7 @@ AUI.add(
 						var instance = this;
 
 						var taskInput = instance._taskInput;
+
 						var todoList = instance._todoList;
 
 						if (taskInput && todoList) {
@@ -70,6 +149,27 @@ AUI.add(
 							todoList.append(taskHtml);
 
 							taskInput.val('');
+
+							var remainingDiv = A.one('.remaining-tasks-count');
+
+							var profileTasksCount = A.one('.profile-tasks-count');
+
+							var taskList = A.one('.task-list');
+
+							var taskListLi = taskList.all('li');
+
+							var remainingCount = taskListLi.size();
+
+							if (remainingCount) {
+								remainingDiv.html(remainingCount);
+
+								profileTasksCount.html(remainingCount);
+							}
+							else if (remainingCount === 0) {
+								remainingDiv.html('0');
+
+								profileTasksCount.html('0');
+							}
 						}
 					}
 				}
@@ -81,6 +181,6 @@ AUI.add(
 
 	'',
 	{
-		requires: ['event-key', 'node-event-delegate']
+		requires: ['aui-char-counter', 'event-key', 'node-event-delegate']
 	}
 );

@@ -3,6 +3,10 @@
 /* Overridden aui tags
 */
 
+.aui header, .aui nav {
+	display: none;
+}
+
 .aui .todo-portlet {
 	input[type="text"].input-item {
 		border: 1px solid #CCC;
@@ -22,8 +26,7 @@
 	}
 
 	.btn.add-task {
-		background-color: royalblue;
-		background-image: none;
+		background: royalblue none;
 		border-radius: 10px;
 		border-width: 0;
 		color: white;
@@ -85,6 +88,10 @@
 				font-size: 16px;
 			}
 		}
+
+		table {
+			width: 400px;
+		}
 	}
 }
 
@@ -92,7 +99,6 @@
 
 .todo-portlet {
 	.list-container {
-		border-radius: 10px;
 		box-shadow: 10px 10px 5px 10px #888;
 		height: 100%;
 		margin: auto;
@@ -101,7 +107,6 @@
 
 		.header {
 			background-color: royalblue;
-			border-radius: 10px 10px 0 0;
 			color: white;
 			padding: 20px 40px;
 			text-align: center;
@@ -249,36 +254,35 @@
 		padding: 0 10px 0 10px;
 
 		h3 {
+			color: royalblue;
 			font-family: 'Open Sans', sans-serif;
-			font-size: 30px;
+			font-weight: 900;
 			text-align: center;
-		}
-
-		table {
-			border-collapse: collapse;
-			width: 98%;
-		}
-
-		td, th {
-			border: 1px solid #DDD;
-			font-size: 16px;
-			padding: 8px;
-			text-align: left;
-		}
-
-		th {
-			background-color: royalblue;
-			color: #E4F1FE;
 			text-transform: uppercase;
 		}
 
-		tr {
-			padding: 8px;
+		ul {
+			margin-left: 0;
 		}
 
-		tr:nth-child(even) {
-			background-color: #C4CAD3;
-			color: yellow;
+		li {
+			background: #888;
+			border-radius: 10px;
+			color: #FFF;
+			cursor: pointer;
+			font-size: 16px;
+			list-style-type: none;
+			padding: 8px 8px 8px 8px;
+			text-decoration: line-through;
+
+			button {
+				display: none;
+			}
+		}
+
+		li:nth-child(odd) {
+			background: #DDD;
+			color: white;
 		}
 	}
 
@@ -296,8 +300,102 @@
 		text-align: center;
 	}
 
+	.profile-page {
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+		margin: auto auto 20px;
+		min-height: 400px;
+		text-align: center;
+		transition: 0.3s;
+		width: 40%;
+
+		.profile-tasks-count {
+			background-color: #EEFF59;
+			border-radius: 50%;
+			color: black;
+			float: left;
+			font-weight: bold;
+			margin: 0 5px 0 6px;
+			padding: 0 8px 0 8px;
+			transition: font-size 1s;
+
+			&:hover {
+				font-size: 20px;
+			}
+		}
+
+		h3 {
+			color: royalblue;
+			font-weight: 900;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		img {
+			width: 40%;
+		}
+
+		.test {
+			margin: auto;
+		}
+	}
+
+	.profile-page:hover {
+		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+	}
+
+	.profile-container {
+		margin: auto;
+		max-width: 70%;
+		padding: 2px 16px;
+
+		.remaining-tasks {
+			float: left;
+		}
+	}
+
+	.contact-form {
+		margin: auto;
+		max-width: 80%;
+		text-align: center;
+
+		table {
+			margin: auto;
+			width: 96%;
+		}
+
+		input {
+			width: 70%;
+		}
+
+		button {
+			background: royalblue none;
+			border-radius: 10px;
+			border-width: 0;
+			color: white;
+			cursor: pointer;
+			display: inline-block;
+			font-size: 16px;
+			margin-bottom: 10px;
+			margin-left: 3px;
+			margin-top: -25px;
+			padding-bottom: 10px;
+			padding-top: 10px;
+			text-align: center;
+			text-decoration: none;
+		}
+
+		h3 {
+			color: royalblue;
+			font-weight: 900;
+			text-align: center;
+			text-transform: uppercase;
+		}
+	}
+
 	@include respond-to(tablet) {
 		.list-container {
+			min-height: 500px;
+
 			.welcome-message {
 				width: 97.5%;
 			}
@@ -315,13 +413,20 @@
 				padding: 20px 15px;
 			}
 		}
+
+		.profile-page {
+			img {
+				width: 60%;
+			}
+		}
 	}
 
 	@include respond-to(phone) {
 		.list-container {
+			border: 1px solid #C7CED8;
 			border-radius: 0;
-			border:  1px solid #C7CED8;;
 			box-shadow: 10px 10px 5px #888;
+			min-height: 600px;
 
 			h2 {
 				font-size: 40px;
@@ -394,9 +499,40 @@
 		}
 
 		.task-history {
-			table {
+			margin-left: 0;
+
+			ul {
+				margin-left: 0;
+			}
+
+			li {
+				border-radius: 0;
 				box-shadow: 10px 10px 5px #888;
-				visibility: hidden;
+				margin-bottom: 6px;
+			}
+		}
+
+		.profile-page {
+			box-shadow: none;
+			width: 100%;
+		}
+
+		.profile-page:hover {
+			box-shadow: none;
+		}
+
+		.contact-form {
+			table {
+				input, select {
+					font-size: 14px;
+				}
+			}
+
+			button {
+				border-radius: 0;
+				box-shadow: 10px 10px 5px #888;
+				margin-bottom: 26px;
+				width: 100%;
 			}
 		}
 	}
