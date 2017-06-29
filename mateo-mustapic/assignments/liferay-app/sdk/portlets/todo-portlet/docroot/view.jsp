@@ -32,11 +32,16 @@
 		<img alt="<%= user.getFullName() %>" src="<%=user.getPortraitURL(themeDisplay) %>">
 	</div>
 
-	<liferay-ui:tabs names="task-list-tab,task-history-tab,finished-tasks-tab" refresh="false">
+	<liferay-ui:tabs names="task-list-tab,task-history-tab,profile-tab,contact-tab" refresh="false">
+
 		<liferay-ui:section>
+
 			<div class="task-container">
+
 				<aui:form>
+
 					<aui:input cssClass="input-item" name="task" placeholder="enter-task">
+
 						<aui:validator name="required" />
 					</aui:input>
 
@@ -78,6 +83,7 @@
 		</liferay-ui:section>
 
 		<liferay-ui:section>
+
 			<div class="task-history">
 				<h3>
 					<liferay-ui:message key="task-history" />
@@ -89,47 +95,100 @@
 					<liferay-ui:message key="no-tasks" />
 				</div>
 
-				<table class="history-table">
-					<thead>
-						<tr>
-							<th>
-								<liferay-ui:message key="id" />
-							</th>
-							<th>
-								<liferay-ui:message key="task-description" />
-							</th>
-							<th>
-								<liferay-ui:message key="time" />
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="td-1"></td>
-							<td class="td-2"></td>
-							<td class="td-3"></td>
-						</tr>
-					</tbody>
-				</table>
+				<ul class="history-list">
+
+				</ul>
 			</div>
 		</liferay-ui:section>
 
 		<liferay-ui:section>
-			<div class="finished-tasks">
+
+			<div class="profile-page">
 				<h3>
-					<liferay-ui:message key="finished-tasks" />
+					<liferay-ui:message key="my-profile" />
+
+					<i class="icon-user"></i>
 				</h3>
 
-				<ul class="finished-task-list"></ul>
+				<img alt="<%= user.getFullName() %>" src="<%=user.getPortraitURL(themeDisplay) %>">
+
+				<div class="profile-container">
+
+					<h4>
+						<strong>
+							<%= user.getScreenName() %>
+						</strong>
+					</h4>
+					<p>
+						<%= user.getJobTitle() %>
+					</p>
+
+					<%
+						Integer hitsCount = (Integer)application.getAttribute("hitCounter");
+
+						if ((hitsCount == null) || (hitsCount == 0)) {
+					%>
+
+					<liferay-ui:message key="welcome-to-website" />
+
+					<%
+							hitsCount = 1;
+						}
+						else {
+					%>
+
+					<liferay-ui:message key="welcome-back-to-website" />
+
+					<%
+						hitsCount += 1;
+						}
+
+						application.setAttribute("hitCounter", hitsCount);
+					%>
+
+					<p>
+					<liferay-ui:message key="total-number-of-visits" />
+
+						<strong>
+							<%= hitsCount %>
+						</strong>
+					</p>
+
+					<div class="tasks-count">
+
+						<div class="profile-tasks-count">
+							1
+						</div>
+
+						<div class="remaining-tasks">
+							<liferay-ui:message key="tasks-left" />
+						</div>
+					</div>
+				</div>
 			</div>
 		</liferay-ui:section>
+
+		<liferay-ui:section>
+
+			<div class="contact-form">
+				<h3>
+					<liferay-ui:message key="contact-us" />
+
+					<i class="icon-envelope"></i>
+				</h3>
+
+				<%@ include file="contact.jsp" %>
+			</div>
+		</liferay-ui:section>
+
 	</liferay-ui:tabs>
 </div>
 
 <aui:script use="todo">
 	new Liferay.Portlet.Todo(
 		{
-			namespace: '<portlet:namespace />'
+			namespace: '<portlet:namespace />',
+			taskFinished: '<%= TodoPortletProps.get("todo.task.finished") %>'
 		}
 	);
 </aui:script>
