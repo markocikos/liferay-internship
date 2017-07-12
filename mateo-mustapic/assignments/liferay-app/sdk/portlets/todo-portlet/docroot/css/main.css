@@ -1,7 +1,16 @@
 @import "mixins";
+@import "compass";
 
-/* Overridden aui tags
-*/
+/* Colors */
+
+$black: #000;
+$gray: #888;
+$lightred: #FF9395;
+$royalblue: #4169E1;
+$white: #FFF;
+$yellow: #EEFF59;
+
+/* Overridden aui tags */
 
 .aui .todo-portlet {
 	input[type="text"].input-item {
@@ -13,7 +22,6 @@
 		height: 18px;
 		margin: auto;
 		padding: 10px 0 10px 1%;
-		transition: font-size 1s;
 		width: 85%;
 
 		&:hover {
@@ -22,22 +30,19 @@
 	}
 
 	.btn.add-task {
-		background-color: royalblue;
-		background-image: none;
-		border-radius: 10px;
+		background: $royalblue none;
 		border-width: 0;
-		color: white;
+		color: $white;
 		cursor: pointer;
 		display: inline-block;
 		font-size: 16px;
 		margin-bottom: 10px;
 		margin-left: 3px;
-		margin-top: -25px;
+		margin-top: -5px;
 		padding-bottom: 10px;
 		padding-top: 10px;
 		text-align: center;
 		text-decoration: none;
-		transition: font-size 1s;
 		width: 11%;
 
 		&:hover {
@@ -54,7 +59,7 @@
 		}
 
 		.btn.add-task {
-			box-shadow: 10px 10px 5px #888;
+			box-shadow: 10px 10px 5px $gray;
 			width: 14%;
 		}
 	}
@@ -74,7 +79,7 @@
 
 		.btn.add-task {
 			border-radius: 0;
-			box-shadow: 10px 10px 5px #888;
+			box-shadow: 10px 10px 5px $gray;
 			font-weight: bold;
 			margin: 0 0 10px 0;
 			text-transform: uppercase;
@@ -92,17 +97,16 @@
 
 .todo-portlet {
 	.list-container {
-		border-radius: 10px;
-		box-shadow: 10px 10px 5px 10px #888;
+		background-color: $white;
+		border-left: 1px solid #C7CED8;
 		height: 100%;
 		margin: auto;
 		max-width: 900px;
-		min-height: 500px;
+		min-height: 600px;
 
 		.header {
-			background-color: royalblue;
-			border-radius: 10px 10px 0 0;
-			color: white;
+			background-color: $royalblue;
+			color: $white;
 			padding: 20px 40px;
 			text-align: center;
 		}
@@ -110,14 +114,15 @@
 		h2 {
 			font-size: 60px;
 			font-weight: 900;
+			margin-top: -10px;
 			text-align: center;
 			text-transform: uppercase;
 		}
 	}
 
 	.welcome-message {
-		background-color: #FF9395;
-		color: white;
+		background-color: $lightred;
+		color: $white;
 		display: inline-block;
 		float: right;
 		font-weight: bold;
@@ -136,7 +141,7 @@
 		padding: 10px 10px 10px 10px;
 
 		h3 {
-			font-family: 'Open Sans', sans-serif;
+			font-family: Raleway, sans-serif;
 			font-size: 30px;
 			font-weight: 900;
 			text-transform: uppercase;
@@ -144,13 +149,12 @@
 	}
 
 	.counter {
-		background-color: royalblue;
+		background-color: $royalblue;
 		border-radius: 50%;
 		color: #E1E6EF;
 		font-weight: bold;
 		margin: 0 5px 0 6px;
 		padding: 8px 8px 8px 8px;
-		transition: font-size 1s;
 
 		&:hover {
 			font-size: 20px;
@@ -163,15 +167,14 @@
 
 		li {
 			background-color: #1A53AF;
-			border-radius: 10px;
-			color: white;
+			box-shadow: 10px 10px 5px $gray;
+			color: $white;
 			cursor: pointer;
 			font-size: 16px;
 			list-style-type: none;
-			padding: 8px 0 8px 8px;
+			margin-bottom: 6px;
+			padding: 8px 8px 8px 8px;
 			position: relative;
-			transition: all 1s ease-out;
-			user-select: none;
 
 			&:nth-child(odd) {
 				background-color: #93D5FF;
@@ -180,9 +183,9 @@
 	}
 
 	.delete-task {
-		background-color: white;
+		background-color: $white;
 		border-width: 0;
-		color: white;
+		color: $white;
 		margin: auto;
 		position: absolute;
 		right: 0;
@@ -197,14 +200,13 @@
 		margin-bottom: 0;
 
 		.remaining-tasks-count {
-			background-color: #EEFF59;
+			background-color: $yellow;
 			border-radius: 50%;
-			color: black;
+			color: $black;
 			float: left;
 			font-weight: bold;
 			margin: 0 5px 0 6px;
 			padding: 0 8px 0 8px;
-			transition: font-size 1s;
 
 			&:hover {
 				font-size: 20px;
@@ -223,11 +225,13 @@
 
 		li {
 			background-color: #FF6B68;
-			border-radius: 10px;
-			color: white;
+			border-radius: 0;
+			box-shadow: 10px 10px 5px $gray;
+			color: $white;
 			cursor: pointer;
 			font-size: 16px;
 			list-style-type: none;
+			margin-bottom: 6px;
 			padding: 8px 8px 8px 8px;
 		}
 
@@ -235,8 +239,9 @@
 			background-color: #FF6B68;
 			border-radius: 50%;
 			border-width: 0;
-			color: white;
+			color: $white;
 			float: right;
+			margin-top: -6px;
 			padding: 6px 10px 6px 10px;
 
 			&:hover {
@@ -249,36 +254,36 @@
 		padding: 0 10px 0 10px;
 
 		h3 {
-			font-family: 'Open Sans', sans-serif;
-			font-size: 30px;
+			color: $royalblue;
+			font-family: Raleway, sans-serif;
+			font-weight: 900;
 			text-align: center;
-		}
-
-		table {
-			border-collapse: collapse;
-			width: 98%;
-		}
-
-		td, th {
-			border: 1px solid #DDD;
-			font-size: 16px;
-			padding: 8px;
-			text-align: left;
-		}
-
-		th {
-			background-color: royalblue;
-			color: #E4F1FE;
 			text-transform: uppercase;
 		}
 
-		tr {
-			padding: 8px;
+		ul {
+			margin-left: 0;
 		}
 
-		tr:nth-child(even) {
-			background-color: #C4CAD3;
-			color: yellow;
+		li {
+			background: $gray;
+			box-shadow: 10px 10px 5px $gray;
+			color: #FFF;
+			cursor: pointer;
+			font-size: 16px;
+			list-style-type: none;
+			margin-bottom: 6px;
+			padding: 8px 8px 8px 8px;
+			text-decoration: line-through;
+
+			button {
+				display: none;
+			}
+		}
+
+		li:nth-child(odd) {
+			background: #DDD;
+			color: $white;
 		}
 	}
 
@@ -296,17 +301,80 @@
 		text-align: center;
 	}
 
+	.form-container {
+		margin: auto;
+		width: 90%;
+
+		h3 {
+			color: $royalblue;
+			font-weight: 900;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		form {
+			font-size: 16px;
+			margin: auto;
+			width: 100%;
+
+			input, select {
+				box-sizing: content-box;
+				float: left;
+				height: 18px;
+				margin: auto;
+				padding: 10px 0 10px 1%;
+				width: 100%;
+
+				&:hover {
+					font-size: 18px;
+				}
+			}
+
+			textarea {
+				width: 100%;
+
+				&:hover {
+					font-size: 18px;
+				}
+			}
+		}
+
+		.form-buttons {
+			text-align: center;
+
+			button {
+				background: $royalblue none;
+				border-width: 0;
+				color: $white;
+				cursor: pointer;
+				display: inline-block;
+				font-size: 16px;
+				margin-bottom: 10px;
+				padding-bottom: 10px;
+				padding-top: 10px;
+				text-align: center;
+				text-decoration: none;
+
+				&:hover {
+					background-color: #BBB;
+					font-size: 18px;
+				}
+			}
+		}
+	}
+
 	@include respond-to(tablet) {
 		.list-container {
+			min-height: 600px;
+
 			.welcome-message {
 				width: 97.5%;
 			}
 		}
 
 		.delete-task {
-			border-radius: 10px;
-			font-size: 17.5px;
-			padding: 11px 11px;
+			font-size: 16px;
+			padding: 8px 8px;
 			width: 7%;
 		}
 
@@ -320,8 +388,8 @@
 	@include respond-to(phone) {
 		.list-container {
 			border-radius: 0;
-			border:  1px solid #C7CED8;;
-			box-shadow: 10px 10px 5px #888;
+			box-shadow: 10px 10px 0 $gray;
+			min-height: 600px;
 
 			h2 {
 				font-size: 40px;
@@ -348,6 +416,7 @@
 		}
 
 		.delete-task {
+			padding: 8px;
 			width: 10%;
 		}
 
@@ -360,12 +429,12 @@
 		}
 
 		.task-list li, .finished-task li {
-			box-shadow: 10px 10px 5px #888;
+			box-shadow: 10px 10px 5px $gray;
 			margin-bottom: 6px;
 		}
 
 		.finished-task button {
-			padding: 4px 12px 10px 8px;
+			padding: 4px 12px 4px 8px;
 		}
 
 		.counter {
@@ -394,9 +463,90 @@
 		}
 
 		.task-history {
-			table {
-				box-shadow: 10px 10px 5px #888;
-				visibility: hidden;
+			margin-left: 0;
+
+			ul {
+				margin-left: 0;
+			}
+
+			li {
+				border-radius: 0;
+				box-shadow: 10px 10px 5px $gray;
+				margin-bottom: 6px;
+			}
+		}
+
+		.form-container {
+			margin: auto;
+			width: 100%;
+
+			form {
+				font-size: 14px;
+				text-align: center;
+				width: 92.5%;
+
+				input, select {
+					width: 100%;
+				}
+
+				textarea {
+					width: 97%;
+				}
+
+				input, select, textarea {
+					transition: none;
+
+					&:hover {
+						font-size: 14px;
+					}
+				}
+			}
+
+			.form-buttons {
+				button {
+					border-radius: 0;
+					box-shadow: 10px 10px 5px $gray;
+					margin-bottom: 0;
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+/* Extras compass */
+
+.aui .todo-portlet {
+	input[type="text"].input-item, .btn.add-task  {
+		@include transition(font-size 1s);
+	}
+}
+
+.todo-portlet {
+	.counter {
+		@include transition(font-size 1s);
+	}
+
+	.task-list {
+		li {
+			@include transition(all 1s ease-out);
+		}
+	}
+
+	.remaining-tasks-container {
+		.remaining-tasks-count {
+			@include transition(font-size 1s);
+		}
+	}
+
+	.form-container {
+		form {
+			input, select {
+				@include transition(font-size 1s);
+			}
+
+			textarea {
+				@include transition(font-size 1s);
 			}
 		}
 	}
