@@ -14,7 +14,7 @@
  */
 --%>
 
-<%@ include file="/init.jsp" %>
+<%@ include file="init.jsp" %>
 
 <div class="list-container">
 	<div class="header">
@@ -33,15 +33,15 @@
 		<img alt="<%= user.getFullName() %>" src="<%= user.getPortraitURL(themeDisplay) %>">
 	</div>
 
-	<liferay-ui:tabs names="task-list-tab,task-history-tab,profile-tab,contact-tab" refresh="false">
+	<liferay-ui:tabs names="task-list-tab,task-history-tab,contact-tab" refresh="false">
 		<liferay-ui:section>
 			<div class="task-container">
-				<aui:form>
+				<aui:form name="task-form">
 					<aui:input cssClass="input-item" name="task" placeholder="enter-task">
 						<aui:validator name="required" />
 					</aui:input>
 
-					<aui:button cssClass="add-task" name="add" value="add" />
+					<aui:button cssClass="add-task" name="add" type="submit" value="add" />
 				</aui:form>
 
 				<span class="counter">
@@ -79,27 +79,15 @@
 		</liferay-ui:section>
 
 		<liferay-ui:section>
-			<div class="task-history">
-				<h3>
-					<liferay-ui:message key="task-history" />
 
-					<i class="icon-book"></i>
-				</h3>
+			<%@ include file="/history.jspf" %>
 
-				<div class="empty-task-history" id="<portlet:namespace />empty-task-history">
-					<liferay-ui:message key="no-tasks" />
-				</div>
-
-				<ul class="history-list" id="<portlet:namespace />history-list"></ul>
-			</div>
 		</liferay-ui:section>
 
 		<liferay-ui:section>
-			<div class="profile-page"></div>
-		</liferay-ui:section>
 
-		<liferay-ui:section>
-			<div class="contact-form"></div>
+			<%@ include file="/contact.jspf" %>
+
 		</liferay-ui:section>
 	</liferay-ui:tabs>
 </div>
