@@ -1,0 +1,34 @@
+<%@ include file="init.jsp" %>
+
+<div class="todo-header">
+	<div class="header">
+		<h2>
+			<liferay-ui:message key="to-do-list" />
+
+				<i class="icon-check"></i>
+		</h2>
+	</div>
+
+	<div class="welcome-message">
+		<liferay-ui:message key="welcome" />
+
+		<%= user.getFirstName() %>
+
+		<img alt="<%= user.getFullName() %>" src="<%= user.getPortraitURL(themeDisplay) %>">
+	</div>
+
+	<portlet:renderURL var="homeURL">
+
+		<portlet:param name="mvcPath" value= "/view.jsp"></portlet:param>
+	</portlet:renderURL>
+
+	<portlet:renderURL var="contactURL">
+
+		<portlet:param name="mvcPath" value= "/contact.jsp"></portlet:param>
+	</portlet:renderURL>
+
+	<div class="top-navigation">
+		<aui:a cssCass="active" href="<%= homeURL.toString() %>"><liferay-ui:message key="task-list" /></aui:a>
+		<aui:a href="<%= contactURL.toString() %>"><liferay-ui:message key="contact-us" /></aui:a>
+	</div>
+</div>
