@@ -3,12 +3,26 @@ AUI.add(
 	function(A) {
 		var EVENT_CLICK = 'click';
 
+		var TPL_FAILURE_MESSAGE = '<div class="alert alert-error">' +
+				'<strong>' +
+					'{warning} ' +
+				'</strong>' +
+				'{requestNotSent}' +
+			'</div>';
+
 		var TPL_FINISHED_TASK = '<li>' +
 				'{taskFinished}' +
 				'<button>' +
 					'<i class="icon-trash"></i>' +
 				'</button>' +
 			'</li>';
+
+		var TPL_SUCCESS_MESSAGE = '<div class="alert alert-success">' +
+				'<strong>' +
+				'{requestSuccessful} ' +
+				'</strong>' +
+				'{requestSent}' +
+			'</div>';
 
 		var TPL_TASK = '<li>' +
 				'{taskContent} ' +
@@ -136,6 +150,46 @@ AUI.add(
 							taskInput.val('');
 
 							instance._updateTaskCounts();
+
+							var resourceURL = taskInput.attr('data-resourceURL');
+
+							A.io.request(
+								resourceURL,
+								{
+									data: {
+										taskInput: taskInput.val()
+									},
+									method: 'post',
+									on: {
+										failure: function() {
+											var failureMessage = instance.byId('request-failure');
+
+											var failureHtml = A.lang.sub(
+												TPL_FAILURE_MESSAGE,
+												{
+													requestNotSent: 'Request failed',
+													warning: 'Warning!'
+												}
+											);
+
+											failureMessage.html(failureHtml);
+										},
+										success: function(config) {
+											var successMessage = instance.byId('request-success');
+
+											var successHtml = A.Lang.sub(
+												TPL_SUCCESS_MESSAGE,
+												{
+													requestSent: 'Task added successfully to task list',
+													requestSuccessful: 'Success!'
+												}
+											);
+
+											successMessage.html(successHtml);
+										}
+									}
+								}
+							);
 						}
 					},
 
@@ -160,6 +214,6 @@ AUI.add(
 
 	'',
 	{
-		requires: ['aui-char-counter', 'event-key', 'liferay-portlet-base', 'node-event-delegate']
+		requires: ['aui-alert', 'aui-char-counter', 'aui-io-request', 'event-key', 'liferay-portlet-base', 'node-event-delegate']
 	}
 );
