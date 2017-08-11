@@ -24,13 +24,14 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 
-import java.io.IOException;
-
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.PortletException;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
+import javax.portlet.ResourceRequest;
+import javax.portlet.ResourceResponse;
+import java.io.IOException;
 
 /**
  * @author Mateo Mustapic
@@ -90,6 +91,35 @@ public class TodoPortlet extends MVCPortlet {
 			}
 
 			super.doView(renderRequest, renderResponse);
+	}
+
+	@Override
+	public void serveResource(
+			ResourceRequest resourceRequest, ResourceResponse resourceResponse)
+		throws IOException, PortletException {
+			try {
+				if (resourceRequest.getResourceID().equals("task-resource")) {
+					String taskContent = ParamUtil.getString(
+						resourceRequest, "taskContent");
+
+					if (taskContent == null) {
+						if (_log.isInfoEnabled()) {
+							_log.info("Ajax call is not performed");
+						}
+					}
+					else {
+						if (_log.isInfoEnabled()) {
+							_log.info("Ajax call is performed");
+						}
+					}
+
+					super.serveResource(resourceRequest, resourceResponse);
+				}
+			}
+
+			catch (Exception e) {
+				_log.error(e);
+			}
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(TodoPortlet.class);
