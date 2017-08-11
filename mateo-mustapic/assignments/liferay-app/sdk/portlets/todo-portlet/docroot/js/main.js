@@ -3,12 +3,20 @@ AUI.add(
 	function(A) {
 		var EVENT_CLICK = 'click';
 
+		var TPL_FAILURE_MESSAGE = '<div class="alert alert-error">' +
+				'{warningMessage} ' +
+			'</div>';
+
 		var TPL_FINISHED_TASK = '<li>' +
 				'{taskFinished}' +
 				'<button>' +
 					'<i class="icon-trash"></i>' +
 				'</button>' +
 			'</li>';
+
+		var TPL_SUCCESS_MESSAGE = '<div class="alert alert-success">' +
+				'{taskAdded}' +
+			'</div>';
 
 		var TPL_TASK = '<li>' +
 				'{taskContent} ' +
@@ -40,6 +48,14 @@ AUI.add(
 						var remainingDiv = instance.byId('remaining-tasks-count');
 
 						instance._remainingDiv = remainingDiv;
+
+						var taskAdded = config.taskAdded;
+
+						instance._taskAdded = taskAdded;
+
+						var warningMessage = config.warningMessage;
+
+						instance._warningMessage = warningMessage;
 
 						var emptyTaskHistory = instance.byId('empty-task-history');
 						var finishedTask = instance.byId('finished-task');
@@ -136,6 +152,47 @@ AUI.add(
 							taskInput.val('');
 
 							instance._updateTaskCounts();
+
+							var resourceURL = taskInput.attr('data-resourceURL');
+
+							A.io.request(
+								resourceURL,
+								{
+									data: {
+										taskContent: taskInput.val()
+									},
+
+									method: 'post',
+
+									on: {
+										failure: function() {
+											var failureMessage = instance.byId('request-failure');
+
+											var failureHtml = A.lang.sub(
+												TPL_FAILURE_MESSAGE,
+												{
+													warningMessage: instance._warningMessage
+												}
+											);
+
+											failureMessage.html(failureHtml);
+										},
+
+										success: function() {
+											var successMessage = instance.byId('request-success');
+
+											var successHtml = A.Lang.sub(
+												TPL_SUCCESS_MESSAGE,
+												{
+													taskAdded: instance._taskAdded
+												}
+											);
+
+											successMessage.html(successHtml);
+										}
+									}
+								}
+							);
 						}
 					},
 
@@ -160,6 +217,6 @@ AUI.add(
 
 	'',
 	{
-		requires: ['aui-char-counter', 'event-key', 'liferay-portlet-base', 'node-event-delegate']
+		requires: ['aui-char-counter', 'aui-io-request', 'event-key', 'liferay-portlet-base', 'node-event-delegate']
 	}
 );
