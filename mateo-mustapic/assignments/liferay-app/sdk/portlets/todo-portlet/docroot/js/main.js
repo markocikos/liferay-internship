@@ -149,15 +149,11 @@ AUI.add(
 
 							todoList.append(taskHtml);
 
-							taskInput.val('');
-
-							instance._updateTaskCounts();
-
 							var taskForm = instance.byId('taskForm');
 
 							var resourceURL = taskForm.attr('action');
 
-							var taskInputValue = A.one('#<portlet:namespace />task-input');
+							var taskInputValue = taskInput.val();
 
 							if (resourceURL) {
 								A.io.request(
@@ -205,6 +201,10 @@ AUI.add(
 									}
 								);
 							}
+
+							taskInput.val('');
+
+							instance._updateTaskCounts();
 						}
 					},
 
