@@ -25,11 +25,17 @@
 		<i class="icon-check"></i>
 	</h3>
 
-	<aui:form cssClass="task-form" name="task-form">
-		<aui:input cssClass="input-item" name="task" placeholder="enter-task" required="true" />
+	<portlet:resourceURL id="task-resource" var="taskListURL" />
+
+	<aui:form action="<%= taskListURL.toString() %>" cssClass="task-form" id="taskForm" method="post" name="taskForm">
+		<aui:input cssClass="input-item" id="task-input" name="task" placeholder="enter-task" required="true" />
 
 		<aui:button cssClass="add-task" name="add" type="submit" value="add" />
 	</aui:form>
+
+	<div id="<portlet:namespace />request-success"></div>
+
+	<div id="<portlet:namespace />request-failure"></div>
 
 	<span class="counter">
 		35
@@ -82,7 +88,9 @@
 	new Liferay.Portlet.Todo(
 		{
 			namespace: '<portlet:namespace />',
-			taskFinished: '<%= UnicodeLanguageUtil.get(pageContext, "task-finished") %>'
+			successMessage: '<%= UnicodeLanguageUtil.get(pageContext, "form-successfully-submitted") %>',
+			taskFinished: '<%= UnicodeLanguageUtil.get(pageContext, "task-finished") %>',
+			warningMessage: '<%= UnicodeLanguageUtil.get(pageContext, "form-submission-failed") %>'
 		}
 	);
 </aui:script>
