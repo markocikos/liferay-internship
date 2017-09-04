@@ -10,6 +10,15 @@ AUI.add(
 				'</button>' +
 			'</li>';
 
+		var TPL_FORM_FAILURE_MESSAGE = '<div class="alert alert-error">' +
+				'{formErrorMessage} ' +
+			'</div>';
+
+		var TPL_FORM_SUCCESS_MESSAGE = '<div class="alert alert-success">' +
+				'<i class="icon-ok"></i> ' +
+				'{formSuccessMessage}' +
+			'</div>';
+
 		var TPL_TASK = '<li>' +
 				'{taskContent} ' +
 				'<button class="btn delete-task">' +
@@ -40,6 +49,14 @@ AUI.add(
 						var remainingDiv = instance.byId('remaining-tasks-count');
 
 						instance._remainingDiv = remainingDiv;
+
+						var formSuccessMessage = config.formSuccessMessage;
+
+						instance._formSuccessMessage = formSuccessMessage;
+
+						var formErrorMessage = config.formErrorMessage;
+
+						instance._formErrorMessage = formErrorMessage;
 
 						var emptyTaskHistory = instance.byId('empty-task-history');
 						var finishedTask = instance.byId('finished-task');
@@ -133,6 +150,55 @@ AUI.add(
 
 							todoList.append(taskHtml);
 
+							var taskForm = instance.byId('taskForm');
+
+							var resourceURL = taskForm.attr('action');
+
+							var taskInputValue = taskInput.val();
+
+							var requestStatus = instance.byId('request-status');
+
+							if (resourceURL) {
+								A.io.request(
+									resourceURL,
+									{
+										method: 'post',
+
+										data: {
+											taskInputValue: taskInputValue
+										},
+
+										form: {
+											id: taskForm
+										},
+
+										on: {
+											failure: function() {
+												var failureHtml = A.Lang.sub(
+													TPL_FORM_FAILURE_MESSAGE,
+													{
+														formErrorMessage: instance._formErrorMessage
+													}
+												);
+
+												requestStatus.html(failureHtml);
+											},
+
+											success: function() {
+												var successHtml = A.Lang.sub(
+													TPL_FORM_SUCCESS_MESSAGE,
+													{
+														formSuccessMessage: instance._formSuccessMessage
+													}
+												);
+
+												requestStatus.html(successHtml);
+											}
+										}
+									}
+								);
+							}
+
 							taskInput.val('');
 
 							instance._updateTaskCounts();
@@ -160,6 +226,6 @@ AUI.add(
 
 	'',
 	{
-		requires: ['aui-char-counter', 'event-key', 'liferay-portlet-base', 'node-event-delegate']
+		requires: ['aui-char-counter', 'aui-io-request', 'event-key', 'liferay-portlet-base', 'node-event-delegate']
 	}
 );
